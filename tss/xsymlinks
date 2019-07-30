@@ -1,0 +1,15 @@
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PdSTRIPE/tsr/TSSset-1.txt Pd_TSSset-1.txt
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PdSTRIPE/tsr/TSSset-2.txt Pd_TSSset-2.txt 
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PdSTRIPE/tsr/TSSset-3.txt Pd_TSSset-3.txt 
+
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PnSTRIPE/tsr/TSSset-1.txt Pn_TSSset-1.txt
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PnSTRIPE/tsr/TSSset-2.txt Pn_TSSset-2.txt
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PnSTRIPE/tsr/TSSset-3.txt Pn_TSSset-3.txt
+
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PoSTRIPE/tsr/TSSset-1.txt Po_TSSset-1.txt
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PoSTRIPE/tsr/TSSset-2.txt Po_TSSset-2.txt
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PoSTRIPE/tsr/TSSset-3.txt Po_TSSset-3.txt
+
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PjSTRIPE/tsr/TSSset-1.txt Pj_TSSset-1.txt
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PjSTRIPE/tsr/TSSset-2.txt Pj_TSSset-2.txt
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PjSTRIPE/tsr/TSSset-3.txt Pj_TSSset-3.txt
