@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "Converting Paramecium Gene IDs into Protein IDs"
+
+cut -f 12 Pj_TSRsetMerged.txt | sed -e s/.G/.P/g > Pj_TSRsetMerged_protID.txt
+cut -f 12 Po_TSRsetMerged.txt | sed -e s/.G/.P/g > Po_TSRsetMerged_protID.txt
+cut -f 12 Pn_TSRsetMerged.txt | sed -e s/.G/.P/g > Pn_TSRsetMerged_protID.txt
+cut -f 12 Pd_TSRsetMerged.txt | sed -e s/.G/.P/g > Pd_TSRsetMerged_protID.txt
+
+echo "Job complete."
