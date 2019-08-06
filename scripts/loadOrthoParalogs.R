@@ -6,6 +6,7 @@ loadOrthoParalogs <- function(OPtable) {
 	       stop("Argument OPtable must be of class 'character'")
 	       }
 	   
+	   myOP.table <- read.table(file=OPtable, header=TRUE)
 ### to be continued     
 	   
 	   return(my.list)
