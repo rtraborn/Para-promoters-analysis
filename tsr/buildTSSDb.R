@@ -18,13 +18,13 @@ buildTSSDb <- function(speciesNames, ...) {
 	         for (i in 1:x) {
 	              this.table  <- read.table(file=x.1[[i]][1], header=TRUE)
 		      genes.table <- this.table[complete.cases(this.table[,12]),]
-		      # lapply( #apply script here
+		      for (j in 1:nrow(genes.table)) {
+		      	  my.gene <- genes.table[j,12]
+			  my.list[[i]][j] <- tssToList(genes.table, my.gene)
+			  print(j)
+			  }
+	               names(my.list[[i]]) <- genes.table[,12]
 	      }
-
-	      ### adding gene-based assignmment to list
-
-	      test2 <- test$Pjenn[complete.cases(test$Pjenn[,12]),]   
-	      gene.list <- vector(mode="list", 
 
 	   return(my.list)
 }
