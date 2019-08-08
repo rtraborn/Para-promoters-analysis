@@ -47,3 +47,5 @@ $PDEC.223.1.G00010003$tsrSI
 $PDEC.223.1.G00010003$tsrMSI
 [1] 1
 ```
+
+Coming soon: importing para-ortholog files into the same custom R object.
