@@ -20,6 +20,7 @@ loadOrthoParalogs <- function(OPtable) {
 		      #print(this.id)
 		      opList[[i]] <- spp.table[i,]
 		      ### need to work on assigning each paralog
+		      ### remove multimicronuc
 		      }
 	   
 	   return(opList)
