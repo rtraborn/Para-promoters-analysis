@@ -18,7 +18,9 @@ loadOrthoParalogs <- function(OPtable) {
 	   	  for (i in 1:nrow(myOP.table)) {
 		      this.id <- myOP.table[i,1]
 		      #print(this.id)
-		      opList[[i]] <- spp.table[i,]
+		      this.slot <- spp.table[i,]
+#		      this.vec <- unlist(as.character(spp.table[i,]))
+		      opList[[i]] <- this.slot
 		      ### need to work on assigning each paralog
 		      ### remove multimicronuc
 		      }
