@@ -48,4 +48,16 @@ $PDEC.223.1.G00010003$tsrMSI
 [1] 1
 ```
 
-Coming soon: importing para-ortholog files into the same custom R object.
+#### Importing the ortho-paralog dataset into a new object:
+
+```
+source("loadOrthoParalogs.R")
+test.orthoPara <- loadOrthoParalogs("../paralog_datasets/all_aurelias-cut-mod.poff")
+```
+
+#### The results should look like this:
+```
+test.orthoPara[[1]]
+```
+
+
