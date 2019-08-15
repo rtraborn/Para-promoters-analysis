@@ -57,7 +57,32 @@ test.orthoPara <- loadOrthoParalogs("../paralog_datasets/all_aurelias-cut-mod.po
 
 #### The results should look like this:
 ```
-test.orthoPara[[1]]
+my.import[["WGD00046"]] #this was chosen simply because it's the first ortho-paralog group in the list
+$Pbi
+Para1 Para2 
+  "."   "." 
+
+$Pdec
+                 Para1                  Para2 
+                  "NA" "PDEC.223.1.P01260103" 
+
+$Pdodec
+Para1 Para2 
+  "."   "." 
+
+$Pjenn
+                Para1                 Para2 
+"PJENN.M.1.P03370020" "PJENN.M.1.P00800118" 
+
+$Pnov
+                Para1                 Para2 
+"PNOV.TE.1.P00320073" "PNOV.TE.1.P00150102" 
+
+$Poct
+                         Para1                          Para2 
+                           "." "POCT.K8.1.P71800002769690106"
+
+... #results truncated for readability
 ```
 
 
