@@ -11,19 +11,21 @@ evalParaGroups <- function(OPobj) {
 	   colnames(this.ma2) <- c("Pbi", "Pdec", "Pdodec", "Pjenn", "Pnov", "Poct", "Ppent", "Pprim", "Pquad" , "Psept", "Psex", "Pson", "Ptet", "Ptre")
 	   rownames(this.ma2) <- names(OPobj)
 
-#		for (i in 1:length(OPobj)) {
-		for (i in 1:10) {
-	       	   spp.list <- OPobj$i
-		   thisOP <- spp.list[[1]]	       	   
+		for (i in 1:length(OPobj)) {
+	       	   spp.list <- OPobj[[i]]
+		   #print(head(spp.list))
 
-	       	   for (j in mySpp) {
-		       my.vec <- thisOP$mySpp
-		       if (my.vec[1] == "." && my.vec[2] == ".") { #fix this logical
+	       	   for (j in 1:length(mySpp)) {
+		       this.sp <- mySpp[j]
+		       #print(this.sp)
+		       my.vec <- spp.list[[this.sp]]
+		       #print(my.vec)
+		       if ((my.vec[1]==".") && (my.vec[2]==".")) {
 		       	  n.total <- 0
 			  this.ma1[i,j] <- n.total
 			  next
 			  }
-		       if (my.vec[1] == "." || my.vec[2] == ".") { #fix this logical
+		       if ((my.vec[1] == ".") || (my.vec[2] == ".")) {
 		       	  n.total <- 1
 			  this.ma1[i,j] <- n.total
 			  next
