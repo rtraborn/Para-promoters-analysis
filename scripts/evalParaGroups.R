@@ -13,32 +13,57 @@ evalParaGroups <- function(OPobj) {
 
 		for (i in 1:length(OPobj)) {
 	       	   spp.list <- OPobj[[i]]
-		   #print(head(spp.list))
-
+		   #print(i)
 	       	   for (j in 1:length(mySpp)) {
 		       this.sp <- mySpp[j]
 		       #print(this.sp)
 		       my.vec <- spp.list[[this.sp]]
 		       #print(my.vec)
 		       if ((my.vec[1]==".") && (my.vec[2]==".")) {
+		          #print("Loop 1")
 		       	  n.total <- 0
 			  this.ma1[i,j] <- n.total
+			  this.ma2[i,j] <- "None"
 			  next
 			  }
-		       if ((my.vec[1] == ".") || (my.vec[2] == ".")) {
-		       	  n.total <- 1
+		       if ((is.na(my.vec[1])) && (is.na(my.vec[2]))) {
+		          #print("Loop 2")
+		       	  n.total <- 0
 			  this.ma1[i,j] <- n.total
+			  this.ma2[i,j] <- "None"
+			  next
+			  }
+		       if ((is.na(my.vec[1])) || (is.na(my.vec[2]))) {
+		          #print("Loop 3")
+		       	  this.ind <- which(is.na(my.vec[1]))
+			  my.vec <- my.vec[-this.ind]
+			  n.total <- 1
+			  this.ma1[i,j] <- n.total
+			  this.ma2[i,j] <- my.vec
+			  next
+			  }
+		       if ((my.vec[1]==".") || (my.vec[2]==".")) {
+		       	  #print("Loop 4")
+		       	  this.ind <- which(my.vec==".")
+			  my.vec <- my.vec[-this.ind]
+			  n.total <- 1
+			  this.ma1[i,j] <- n.total
+			  this.ma2[i,j] <- my.vec
 			  next
 			  }
 		       else {
+		          #print("Loop 5")
 		          n.total <- 2
 			  this.ma1[i,j] <- n.total
+			  this.str <- paste(my.vec[1], my.vec[2], sep=",")
+			  #print(this.str)
+			  this.ma2[i,j] <- this.str
 			  }
 	   	    }  
 		}
-			  
-	   return(this.ma1)
+	   out.list <- vector(mode="list", length=2)
+	   names(out.list) <- c("numbersMA", "genesMA")
+	   out.list[[1]] <- this.ma1
+	   out.list[[2]] <- this.ma2		  
+	   return(out.list)
 }
-
-# current error message: Error in if (my.vec[1] == "." && my.vec[2] == ".") { :
-# missing value where TRUE/FALSE needed
