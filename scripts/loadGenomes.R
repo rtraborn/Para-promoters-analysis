@@ -4,15 +4,42 @@
 
 library(seqinr)
 
-loadGenomes <- function(pathToFasta) {
+loadGenomes <- function(pathToFasta, ...) {
 	   message("Loading genome assemblies onto new object.")
+
 	   if (is.character(pathToFasta)==FALSE) {
 	      stop("Input must be of class 'character'.")
 	      }
 	   
-	   my.genome <- read.fasta(file=pathToFasta, as.string=TRUE)
+	   genome.paths <- list(pathToFasta, ...)
+	   
+	   paths.vec <- unlist(genome.paths)
+	   
+	   #print(genome.paths)
 
-	       message("Complete.")
+	   genome.obj <- vector(mode="list", length=length(genome.paths))
 
-	       return(my.genome)
+	   gen.names <- vector(mode="character", length=length(genome.paths))
+
+	   for (i in 1:length(genome.paths)) {
+
+	        this.path <- genome.paths[[i]]
+
+		this.name <- strsplit(basename(paths.vec[i]), split="_")
+
+		obj.name <- unlist(this.name)[1]
+
+		print(obj.name)
+
+		genome.obj[[i]] <- read.fasta(file=this.path, as.string=TRUE)
+
+		gen.names[i] <- obj.name
+
+		}
+
+		names(genome.obj) <- gen.names
+
+	        message("Complete.")
+
+	        return(genome.obj)
 }
