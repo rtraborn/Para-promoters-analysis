@@ -6,16 +6,18 @@ buildGeneDb <- function(speciesNames, ...) {
 	    if (is.character(speciesNames)==FALSE) {
 	       stop("speciesNames must be of class 'character'")
 	       }
-	    if (x != sp.len) {
-	       stop("speciesNames and gff files must be of the same length")
-	       }	       
-
+	       
 	    message("Loading gene annotations to object.")
 
 	    sp.len <- length(speciesNames)
 	    x.1 <- list(...)
 	    print(x.1)
 	    x <- length(x.1)
+
+	    if (x != sp.len) {
+	       stop("speciesNames and gff files must be of the same length")
+	       }
+
             my.seq <- 1:x
 	    my.list <- vector(mode="list", length=x)
 	    my.slots <- speciesNames
