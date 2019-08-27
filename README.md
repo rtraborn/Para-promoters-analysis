@@ -85,4 +85,8 @@ $Poct
 ... #results truncated for readability
 ```
 
+#### Now let's build a gene database:
 
+```
+geneDb <- buildGeneDb(c("Pdec", "Pjenn", "Pnov", "Poct"), "../../annotations/pdec-full.gff", "../../annotations/pjen-full.gff", "../../annotations/pnov-full.gff", "../../annotations/poct-full.gff")
+```
