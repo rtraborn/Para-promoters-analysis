@@ -2,7 +2,7 @@
 
 library(rtracklayer)
 
-buildGeneDb <- function(geneDb, tssDb) {
+createGenePresenceMa <- function(geneDb, tssDb) {
 	    if (is.list(geneDb)==FALSE) {
 	       stop("geneDb must be of class 'list'")
 	       }
@@ -11,9 +11,10 @@ buildGeneDb <- function(geneDb, tssDb) {
 	       stop("tssDb must be of class 'list'")
 	       }
 
-	    message("Calculating .")
+	    message("Calculating matrix of presence/absence from tss and geneDbs.")
 
 	    gDb.len <- length(names(geneDb))
+	    print(gDb.len)
 	    tDb.len <- length(names(tssDb))
 
 	    if (gDb.len != tDb.len) {
@@ -22,17 +23,18 @@ buildGeneDb <- function(geneDb, tssDb) {
 
 	    #continue here:
 
-            my.seq <- 1:x
-	    my.list <- vector(mode="list", length=x)
-	    my.slots <- speciesNames
-	    #print(my.slots) #for debugging
+	    my.list <- vector(mode="list", length=tDb.len)
+	    my.slots <- sort(names(tssDb))
+	    print(my.slots)
+	    x <- length(my.slots)
+	    #print(head(my.slots)) #for debugging
 	    names(my.list) <- my.slots
-	    #print(names(my.list)) #for debugging
-	         for (i in 1:x) {
-	              this.gff  <- readGFF(filepath=x.1[[i]])
-		      this.df <- this.gff[this.gff$type=="gene",]
-		      genes.table <- this.df$ID
-		      my.list[[i]] <- genes.table
+	         for (i in my.slots) {
+		      tss.genes <- names(tssDb[[i]])
+		      all.genes <- geneDb[[i]]
+		      this.match <- match(geneDb, tssDb)
+		      #print(head(this.match))
+		      my.list[[i]] <- this.match
 		      }
 
 	   return(my.list)
