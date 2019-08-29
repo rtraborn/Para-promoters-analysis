@@ -32,8 +32,7 @@ createGenePresenceMa <- function(geneDb, tssDb) {
 	         for (i in my.slots) {
 		      tss.genes <- names(tssDb[[i]])
 		      all.genes <- geneDb[[i]]
-		      this.match <- match(geneDb, tssDb)
-		      #print(head(this.match))
+		      this.match <- match(all.genes, tss.genes)
 		      my.list[[i]] <- this.match
 		      }
 
