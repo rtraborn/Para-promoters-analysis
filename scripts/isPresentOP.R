@@ -19,13 +19,29 @@ isPresentOP <- function(opDb, tssDb, sppIDs) {
 
 	    #continue here:
 
-	    sp.len <- length(sppIDs)
+	    my.OP <- unlist(opDb)
+	    my.OP.n <- gsub(".G", ".P", my.OP)
+	    my.matrix <- matrix(my.OP.n, nrow=length(names(opDb)), ncol=28, byrow=FALSE) 
 
-	    my.matrix <- matrix(NA, nrow=length(names(opDb)), ncol=length(sppIDs))
-	    print(my.slots)
-	         for (i in length(names(opDb))) {
-		      #continue here
+            colnames(my.matrix) <- c("Pbi.1", "Pbi.2", "Pdec.1", "Pdec.2", "Pdodec.1", "Pdodec.2", "Pjenn.1", "Pjenn.2", "Pnov.1", "Pnov.2", "Poct.1", "Poct.2", "Ppent.1", "Ppent.2", "Pprim.1", "Pprim.2", "Pquad.1", "Pquad.2", "Psept.1", "Psept.2", "Psex.1", "Psex.2", "Pson.1", "Pson.2", "Ptet.1", "Ptet.2", "Ptre.1", "Ptre.2")
+
+	    my.cols <- colnames(my.matrix)
+
+	    col.matches <- unique(grep(paste(sppIDs,collapse="|"), 
+                        colnames(my.matrix), value=TRUE))
+
+            this.match <- match(my.cols, col.matches)
+	    print(this.match)	    
+
+	    reduced.ma <- my.matrix[,na.omit(this.match)]
+	    
+	         for (i in length(names(tssDb))) {
+		      this.name <- names(tssDb)[i]
+		      this.vec <- names(tssDb[[this.name]])
+		      ## continue with loop here to fill in the matches
+#		      match(this.vec, 
+#		      print(head(this.vec))
 		      }
 
-	   return(my.list)
+	   return(reduced.ma)
 }
