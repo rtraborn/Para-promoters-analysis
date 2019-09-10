@@ -38,6 +38,7 @@ isPresentOP <- function(opDb, tssDb, sppIDs) {
 	         for (i in length(names(tssDb))) {
 		      this.name <- names(tssDb)[i]
 		      this.vec <- names(tssDb[[this.name]])
+		      print(head(this.vec))
 		      ## continue with loop here to fill in the matches
 #		      vec.match <- match(this.vec, opDb[[this.name]])  
 		      print(head(vec.match))
