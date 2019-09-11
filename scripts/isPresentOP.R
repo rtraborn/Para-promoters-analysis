@@ -30,19 +30,27 @@ isPresentOP <- function(opDb, tssDb, sppIDs) {
 	    col.matches <- unique(grep(paste(sppIDs,collapse="|"), 
                         colnames(my.matrix), value=TRUE))
 
+	    #print(head(col.matches))
+
             this.match <- match(my.cols, col.matches)
 	    print(this.match)	    
 
+	    #print(head(my.matrix))
+
 	    reduced.ma <- my.matrix[,na.omit(this.match)]
+	    print(head(reduced.ma))
+	    #problem: current output is printing Pbi.1,2 and Pdec.1,2; col.matches isn't being generated properly
 	    
-	         for (i in length(names(tssDb))) {
+	         for (i in 1:length(names(tssDb))) {
+		      print(i)
 		      this.name <- names(tssDb)[i]
+		      #print(this.name)
 		      this.vec <- names(tssDb[[this.name]])
-		      print(head(this.vec))
+		      #print(head(this.vec))
+		      print(opDb[[this.name]])
 		      ## continue with loop here to fill in the matches
-#		      vec.match <- match(this.vec, opDb[[this.name]])  
-		      print(head(vec.match))
-#		      print(head(this.vec))
+#		      #vec.match <- match(this.vec, opDb[[this.name]])
+		      #print(head(vec.match))
 		      }
 
 	   return(reduced.ma)
