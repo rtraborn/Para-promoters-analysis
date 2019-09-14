@@ -32,26 +32,26 @@ isPresentOP <- function(opDb, tssDb, sppIDs) {
 
 	    #print(head(col.matches))
 
-            this.match <- match(my.cols, col.matches)
-	    print(this.match)	    
+            this.match <- match(col.matches, my.cols)
+	    #print(this.match)	    
 
-	    #print(head(my.matrix))
+	    print(head(my.matrix))
 
 	    reduced.ma <- my.matrix[,na.omit(this.match)]
-	    print(head(reduced.ma))
-	    #problem: current output is printing Pbi.1,2 and Pdec.1,2; col.matches isn't being generated properly
+	    #print(head(reduced.ma))
+	    ## problem: reduced.ma is not being populated properly
 	    
 	         for (i in 1:length(names(tssDb))) {
 		      print(i)
 		      this.name <- names(tssDb)[i]
-		      #print(this.name)
+		      print(this.name)
 		      this.vec <- names(tssDb[[this.name]])
-		      #print(head(this.vec))
-		      print(opDb[[this.name]])
+		      print(head(this.vec))
+		      #print(opDb[[this.name]])
 		      ## continue with loop here to fill in the matches
 #		      #vec.match <- match(this.vec, opDb[[this.name]])
 		      #print(head(vec.match))
 		      }
 
-	   return(reduced.ma)
+	   return(my.matrix)
 }
