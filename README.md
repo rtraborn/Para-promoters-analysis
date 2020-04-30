@@ -90,3 +90,8 @@ $Poct
 ```
 geneDb <- buildGeneDb(c("Pdec", "Pjenn", "Pnov", "Poct"), "../../annotations/pdec-full.gff", "../../annotations/pjen-full.gff", "../../annotations/pnov-full.gff", "../../annotations/poct-full.gff")
 ```
+
+### To test isPresentOP.R (in progress)
+```
+opOut <- isPresentOP(test.orthoPara, sampleDb, sppIDs=c("Pdec", "Pjenn", "Pnov", "Poct"))
+```
