@@ -28,13 +28,13 @@ combined_TSR_new <- combined_TSR[!is.na(combined_TSR$featureID), ]
 
 #creating a new tssDB
 tsrDb <- buildTSSDb(speciesNames=c("Pdec","Poct","Pnov", "Pjenn", "Pdodec", "Ptet", "Ptred", "Pprim"), "Pd_TSRsetMerged_updated.txt", "Po_TSRsetMerged_updated.txt", "Pn_TSRsetMerged_updated.txt", "Pj_TSRsetMerged_updated.txt","Pdodec_TSRsetMerged_updated.txt","Pt_TSRsetMerged_updated.txt", "Ptred_TSRsetMerged_updated.txt", "Pprim_TSRsetMerged_updated.txt")
-#save(tsrDb, file="TSRdb_updated.RData")
+save(tsrDb, file="TSRdb_updated.RData")
 
 #printing an example to the tsr to the screen
 tsrDb[['Pdec']]['PDEC.223.1.P00010003']
 
 #loading the tsrDB (if necessary)
-load("/home/rraborn/scratch/Para-promoters-analysis/tsr/tsrDB_8spp.RData")
+#load("/home/rraborn/scratch/Para-promoters-analysis/tsr/testTSSdb.RData")
 
 isPresent.ma <- isPresentOP(Para.orthoPara,tsrDb,c("Pdec","Poct","Pnov", "Pjenn", "Pdodec", "Ptet", "Ptred", "Pprim"))
 
