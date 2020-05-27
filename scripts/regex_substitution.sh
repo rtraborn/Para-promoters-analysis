@@ -20,12 +20,13 @@ echo "Made it to tmp.6"
 perl -pe 's/(\s\.)(\,)(\w+\.\S+\.P\d+)/\1\t\3/g' tmp.6 > tmp.7
 echo "Made it to tmp.7"
 perl -pe 's/(\s\w+\.\S+\.P\d+)(\,)(\.)/\1\t\3/g' tmp.7 > tmp.8
-echo "Made it to tmp.8"
+perl -pe 's/(\s\w+\.\S+\w+\.\S+\.P\d+)(\,)(\w+\.\S+\.P\d+)/\1\t\3/g' tmp.8 > tmp.9
+echo "Made it to tmp.9"
 
 #now for the annoying PPRIM ids:
-perl -pe 's/(\sPPRIMP\d+)(\,)(\.)/\1\t\3/g' tmp.8 > tmp.9
-perl -pe 's/(\.)(\,)(PPRIMP\d+)/\1\t\3/g' tmp.9 > tmp.10
-perl -pe 's/(\sPPRIMP\d+)(\,)(PPRIMP\d+)/\1\t\3/g' tmp.10 > $outFile
+perl -pe 's/(\sPPRIMP\d+)(\,)(\.)/\1\t\3/g' tmp.9 > tmp.10
+perl -pe 's/(\.)(\,)(PPRIMP\d+)/\1\t\3/g' tmp.10 > tmp.11
+perl -pe 's/(\sPPRIMP\d+)(\,)(PPRIMP\d+)/\1\t\3/g' tmp.11 > $outFile
 
 
 echo "Job complete."
