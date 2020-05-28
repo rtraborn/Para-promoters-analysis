@@ -27,7 +27,7 @@ echo "Made it to tmp.9"
 perl -pe 's/(\sPPRIMP\d+)(\,)(\.)/\1\t\3/g' tmp.9 > tmp.10
 perl -pe 's/(\.)(\,)(PPRIMP\d+)/\1\t\3/g' tmp.10 > tmp.11
 perl -pe 's/(\sPPRIMP\d+)(\,)(PPRIMP\d+)/\1\t\3/g' tmp.11 > tmp.12
-perl -pe 's/(\sPPRIMP\d+\)(\,)(PPRIMP\d+)/\1\t\3/g' tmp.12 > $outFile
-
+echo "Made it here"
+perl -pe 's/(\sPPRIMP\d+)(\,)(PPRIMP\d+)/\1\t\3/g' tmp.12 > $outFile
 
 echo "Job complete."
