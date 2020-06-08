@@ -50,8 +50,8 @@ perl -pe 's/(\.)(\,)(\.)/\1\t\3/g' tmp7.3 > Pjenn_col.txt
 
 #sp_5 (P. nov)
 perl -pe 's/(\S+\.\w+\.\d+\.\S+)(\,)(\S+\.\w+\.\d+\.\S+)/\1\t\3/g' $sp_5 > tmp8
-perl -pe 's/(\S+\.\d+\.\d+\.\S+)(\,)(\.)/\1\t\3/g' tmp8 > tmp8.1
-perl -pe 's/(\.)(\,)(\S+\.\d+\.\d+\.\S+)/\1\t\3/g' tmp8.1 > tmp8.2
+perl -pe 's/(\S+\.\w+\.\d+\.\S+)(\,)(\.)/\1\t\3/g' tmp8 > tmp8.1
+perl -pe 's/(\.)(\,)(\S+\.\w+\.\d+\.\S+)/\1\t\3/g' tmp8.1 > tmp8.2
 perl -pe 's/(NA)(\,)(NA)/\1\t\3/g' tmp8.2 > tmp8.3
 perl -pe 's/(\.)(\,)(\.)/\1\t\3/g' tmp8.3 > Pnov_col.txt 
 
@@ -120,5 +120,7 @@ perl -pe 's/(\.)(\,)(\S+\.\S+\.\d+\.\S+)/\1\t\3/g' tmp17.1 > tmp17.2
 perl -pe 's/(NA)(\,)(NA)/\1\t\3/g' tmp17.2 > tmp17.3
 perl -pe 's/(\.)(\,)(\.)/\1\t\3/g' tmp17.3 > Ptred_col.txt 
 
+
+paste Pbi_col.txt Pdec_col.txt Pdodec_col.txt Pjenn_col.txt Pnov_col.txt Poct_col.txt Ppent_col.txt Ppent_col.txt Pprim_col.txt Pquad_col.txt Psept_col.txt Psex_col.txt Pson_col.txt Ptet_col.txt Ptred_col.txt > Para_ortho_table_new.txt
 
 echo "Job complete."
