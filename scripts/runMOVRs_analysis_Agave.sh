@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH -p mrline-serial
+#SBATCH -p serial
 #SBATCH -n 24
 #SBATCH -t 08:00:00
 
