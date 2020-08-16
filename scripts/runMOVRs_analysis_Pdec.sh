@@ -3,7 +3,7 @@
 #PBS -N RunMoVRs_Pdec
 #PBS -k o
 #PBS -l nodes=1:ppn=16,vmem=64gb
-#PBS -l walltime=24:00:00
+#PBS -l walltime=12:00:00
 
 echo "Launching MoVRs job"
 
