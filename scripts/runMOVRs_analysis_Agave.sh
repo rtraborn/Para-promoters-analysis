@@ -5,6 +5,8 @@
 #SBATCH -t 08:00:00
 
 module purge
+module load blast/2.9.0 
+module load python/3.5.1
 
 echo "Launching MoVRs job"
 
