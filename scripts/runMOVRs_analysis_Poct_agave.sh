@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#SBATCH -J Poct_MoVRs
 #SBATCH -p serial
 #SBATCH -n 24
 #SBATCH -t 12:00:00
