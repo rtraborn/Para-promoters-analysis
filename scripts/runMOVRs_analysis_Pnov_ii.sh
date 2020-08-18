@@ -12,7 +12,7 @@ module load blat
 module load blast
 
 fastaFile=/N/dc2/projects/ParameciumPromoters/assemblies/pnov_mod.fa 
-peakFile=/N/dc2/projects/ParameciumPromoters/Para-promoters-analysis/bed_files/PnTSS.pos
+peakFile=/N/dc2/projects/ParameciumPromoters/Para-promoters-analysis/tss/PnTSS.pos
 
 cd /N/dc2/projects/ParameciumPromoters/Para-promoters-analysis/
 
