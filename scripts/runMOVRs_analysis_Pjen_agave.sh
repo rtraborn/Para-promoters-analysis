@@ -8,6 +8,7 @@
 echo "Launching MoVRs job"
 
 module load blast/2.9.0  
+module load meme/4.11.4
 
 fastaFile=/home/rraborn/scratch/assemblies/pjen_mod.fa 
 peakFile=/home/rraborn/scratch/Para-promoters-analysis/bed_files/PjSTRIPE_inr.pos

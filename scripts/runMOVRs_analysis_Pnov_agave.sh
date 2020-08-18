@@ -1,11 +1,13 @@
 #!/bin/bash
 
+#SBATCH -J Pnov_MoVRs
 #SBATCH -p serial
 #SBATCH -n 24
 #SBATCH -t 12:00:00
 
 echo "Launching MoVRs job"
 
+module load meme/4.11.4
 module load blast/2.9.0  
 
 fastaFile=/home/rraborn/scratch/assemblies/pnov_mod.fa 

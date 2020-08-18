@@ -7,6 +7,7 @@
 
 echo "Launching MoVRs job"
 
+module load meme/4.11.4
 module load blast/2.9.0  
 
 fastaFile=/home/rraborn/scratch/assemblies/poct_mod.fa 
