@@ -12,10 +12,10 @@ module load blat
 module load blast
 
 fastaFile=/N/dc2/projects/ParameciumPromoters/assemblies/pnov_mod.fa 
-peakFile=/N/dc2/projects/ParameciumPromoters/Para-promoters-analysis/bed_files/PnTSS.pos
+peakFile=/N/dc2/projects/ParameciumPromoters/Para-promoters-analysis/tss/PnTSS.pos
 
 cd /N/dc2/projects/ParameciumPromoters/Para-promoters-analysis/
 
-MoVRs -a $peakFile -G Pnov -o Pjen_60_40_ii --size [-60,40] -l 6,8,10 -k 5 -p 20 >& errPNOV_6040_ii
+MoVRs -a $peakFile -G Pnov -o Pnov_60_40_ii --size [-60,40] -l 6,8,10 -k 5 -p 20 >& errPNOV_6040_ii
 
 echo "Job complete"
