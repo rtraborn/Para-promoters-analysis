@@ -15,6 +15,6 @@ peakFile=/home/rraborn/scratch/Para-promoters-analysis/bed_files/PnSTRIPE_inr.po
 
 cd /home/rraborn/scratch/Para-promoters-analysis/
 
-MoVRs -a $peakFile -G Pnov -o Pnov_60_40 --size [-60,40] -k 10 -p 10 >& errPNOV_6040
+MoVRs -a $peakFile -G Pnov -o Pnov_60_40 --size [-60,40] -k 10 --startfromstep step3 -p 10 >& errPNOV_6040_startstep3
 
 echo "Job complete"

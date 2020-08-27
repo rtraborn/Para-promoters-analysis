@@ -15,6 +15,6 @@ peakFile=/home/rraborn/scratch/Para-promoters-analysis/bed_files/PoSTRIPE_inr.po
 
 cd /home/rraborn/scratch/Para-promoters-analysis/
 
-MoVRs -a $peakFile -G Poct -o Poct_60_40 --size [-60,40] -k 10 -p 10 >& errPOCT_6040
+MoVRs -a $peakFile -G Poct -o Poct_60_40 --size [-60,40] -k 10 --startfromstep step3 -p 10 >& errPOCT_6040_startstep3
 
 echo "Job complete"

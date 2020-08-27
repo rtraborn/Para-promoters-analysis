@@ -14,6 +14,6 @@ peakFile=/home/rraborn/scratch/Para-promoters-analysis/bed_files/PdSTRIPE_inr.po
 
 cd /home/rraborn/scratch/Para-promoters-analysis/
 
-MoVRs -a $peakFile -G Pdec -o Pdec_60_40_i --size [-60,40] -k 10 -p 10 >& errPDEC_6040
+MoVRs -a $peakFile -G Pdec -o Pdec_60_40_i --size [-60,40] -k 10 --startfromstep step3 -p 10 >& errPDEC_6040_startstep3
 
 echo "Job complete"

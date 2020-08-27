@@ -7,8 +7,8 @@
 
 echo "Launching MoVRs job"
 
-module load meme
-module load blast
+module load meme/4.11.4
+module load blast/2.9.0
 
 fastaFile=/N/dc2/projects/ParameciumPromoters/assemblies/pdec_mod.fa 
 peakFile=/N/dc2/projects/ParameciumPromoters/Para-promoters-analysis/bed_files/PdSTRIPE_inr.pos
