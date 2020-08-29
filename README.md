@@ -52,7 +52,7 @@ $PDEC.223.1.G00010003$tsrMSI
 
 ```
 source("../scripts/loadOrthoParalogs.R")
-test.orthoPara <- loadOrthoParalogs("../paralog_datasets/all_aurelias-cut-mod.poff")
+test.orthoPara <- loadOrthoParalogs("../paralog_datasets/Poff_table_updated_082020.poff")
 ```
 
 #### The results should look like this:
