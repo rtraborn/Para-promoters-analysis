@@ -16,6 +16,6 @@ peakFile=/N/dc2/projects/ParameciumPromoters/Para-promoters-analysis/tss/PoTSS.p
 
 cd /N/dc2/projects/ParameciumPromoters/Para-promoters-analysis/
 
-MoVRs -a $peakFile -G Poct -o Poct_60_40_6_8 --size [-60,40] -l 6,8 -k 5 -p 20 >& errPOCT_6040_6_8
+MoVRs -a $peakFile -G Poct -o Poct_60_40_6_8 --size [-60,40] -l 6,8 -k 10 -p 20 >& errPOCT_6040_6_8
 
 echo "Job complete"

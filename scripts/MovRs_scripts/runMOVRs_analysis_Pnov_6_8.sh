@@ -16,6 +16,6 @@ peakFile=/N/dc2/projects/ParameciumPromoters/Para-promoters-analysis/tss/PnTSS.p
 
 cd /N/dc2/projects/ParameciumPromoters/Para-promoters-analysis/
 
-MoVRs -a $peakFile -G Pnov -o Pnov_60_40_ii --size [-60,40] -l 6,8 -k 5 -p 20 >& errPNOV_6040_6_8
+MoVRs -a $peakFile -G Pnov -o Pnov_60_40_ii --size [-60,40] -l 6,8 -k 10 -p 20 >& errPNOV_6040_6_8
 
 echo "Job complete"

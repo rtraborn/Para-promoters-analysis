@@ -16,6 +16,6 @@ peakFile=/N/dc2/projects/ParameciumPromoters/Para-promoters-analysis/tss/PjTSS.p
 
 cd /N/dc2/projects/ParameciumPromoters/Para-promoters-analysis/
 
-MoVRs -a $peakFile -G Pjen -o Pjen_60_40_6_8 --size [-60,40] -l 6,8 -k 5 -p 20 >& errPJEN_6040_6_8
+MoVRs -a $peakFile -G Pjen -o Pjen_60_40_6_8 --size [-60,40] -l 6,8 -k 10 -p 20 >& errPJEN_6040_6_8
 
 echo "Job complete"
