@@ -8,8 +8,7 @@ loadOrthoParalogs <- function(OPtable) {
   colnames(myOP.table) <- sppVec	   
   opList <- vector(mode="list", length=nrow(myOP.table))
   names(opList) <- myOP.table[,1]
-  #for (i in 1:nrow(myOP.table)) {
-   for (i in 1:2) {
+  for (i in 1:nrow(myOP.table)) {
     this.id <- myOP.table[i,1]
     this.vec <- spp.table[i,]
     print(head(this.vec))
@@ -32,6 +31,5 @@ loadOrthoParalogs <- function(OPtable) {
    opList[[i]] <- small.list
   }
   
-  return(this.vector)
-  #return(opList)
+  return(opList)
 }
