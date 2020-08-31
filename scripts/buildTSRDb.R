@@ -1,7 +1,7 @@
-## Builds a TSS database from selected paramecium species and returns an .RData object that can be accesed programatically. 
+## Builds a TSS database from selected paramecium species and returns a list object that can be accesed programatically. 
 
 
-buildTSSDb <- function(speciesNames, ...) {
+buildTSRDb <- function(speciesNames, ...) {
 	    if (is.character(speciesNames)==FALSE) {
 	       stop("speciesNames must be of class 'character'")
 	       }
