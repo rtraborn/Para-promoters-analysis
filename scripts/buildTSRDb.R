@@ -20,7 +20,7 @@ buildTSRDb <- function(speciesNames, ...) {
 		      genes.table <- this.table[complete.cases(this.table[,12]),]
 		      for (j in 1:nrow(genes.table)) {
 		      	  my.gene <- genes.table[j,12]
-			  my.list[[i]][j] <- tssToList(genes.table, my.gene)
+			  my.list[[i]][j] <- tsrToList(genes.table, my.gene)
 			  print(j)
 			  }
 	               names(my.list[[i]]) <- genes.table[,12]

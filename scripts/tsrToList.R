@@ -1,6 +1,6 @@
 ## Creates a list from the contents of a standard TSRsetMerged.txt file from TSRchitect
 
-tssToList <- function(x, geneID) {
+tsrToList <- function(x, geneID) {
 	   library(GenomicRanges)
 	   this.table  <- x
 	   this.list <- vector(mode="list", length=1)
