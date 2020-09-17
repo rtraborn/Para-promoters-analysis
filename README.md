@@ -100,5 +100,5 @@ opOut <- isPresentOP(test.orthoPara, sampleDb, sppIDs=c("Pdec", "Pjenn", "Pnov",
 ```
 getwd("../tss")
 source("../scripts/buildTSSDb.R")
-sampleDb <- buildTSSDb(speciesNames=c("Pdec","Poct","Pnov", "Pjenn"), "PdecTSS_intersect.bed", "PoctTSS_intersect.bed", "PnovTSS_intersect.bed", "PjenTSS_intersect.bed")
+sampleDb_tss <- buildTSSDb(speciesNames=c("Pdec","Poct","Pnov", "Pjenn"), "PdecTSS_intersect.bed", "PoctTSS_intersect.bed", "PnovTSS_intersect.bed", "PjenTSS_intersect.bed")
 ```
