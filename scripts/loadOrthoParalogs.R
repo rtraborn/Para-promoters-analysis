@@ -1,3 +1,5 @@
+# at present this function generates warnings: please check
+
 loadOrthoParalogs <- function(OPtable) {
   if (is.character(OPtable)==FALSE) {
     stop("OPtable must be of class 'character'")
