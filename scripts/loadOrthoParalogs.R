@@ -1,4 +1,8 @@
-# at present this function generates warnings: please check
+# at present this function generates warnings: 
+# output currently looks like this: please check
+#$Ppent
+#Para1 Para2 
+#"1" "948"
 
 loadOrthoParalogs <- function(OPtable) {
   if (is.character(OPtable)==FALSE) {
@@ -16,7 +20,7 @@ loadOrthoParalogs <- function(OPtable) {
   opList <- vector(mode="list", length=nrow(myOP.table))
   names(opList) <- myOP.table[,1]
   for (i in 1:nrow(myOP.table)) {
-    this.id <- myOP.table[i,1]
+    this.id <- as.character(myOP.table[i,1])
     this.vec <- spp.table[i,]
     #print(head(this.vec)) #for debugging
     this.list <- strsplit(as.character(unlist(this.vec)), split=",")
@@ -30,7 +34,7 @@ loadOrthoParalogs <- function(OPtable) {
       names(small.vec) <- c("Para1","Para2")
       small.list[[j]] <- small.vec
       print(j)
-      small.list[[j]] <- this.ma[j,]
+      small.list[[j]] <- as.character(this.ma[j,])
       names(small.list[[j]]) <- c("Para1", "Para2")
       #print(small.vec)
       #print(this.ma[j,])
