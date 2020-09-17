@@ -1,5 +1,10 @@
 loadOrthoParalogs <- function(OPtable) {
-  myOP.table <- OPtable
+  if (is.character(OPtable)==FALSE) {
+    stop("OPtable must be of class 'character'")
+  }
+  myOP.table <- read.table(file=OPtable,header=FALSE)
+  myOP.table <- myOP.table[,-2:-4]
+  myOP.table <- myOP.table[,-31]
   message("Importing ortho-paralog table.")
   sppVec <- c("geneFamID", "Pbi_1", "Pdec_1", "Pdodec_1", "Pjenn_1", "Pnov_1", "Poct_1", "Ppent_1", "Pprim_1", "Poct_1","Psex_1", "Pson_1", "Ptet_1", "Ptred_1", "Pbi_2", "Pdec_2", "Pdodec_2", "Pjenn_2", "Pnov_2", "Poct_2", "Ppent_2", "Pprim_2", "Pquadec_2", "Psex_2", "Pson_2", "Ptet_2", "Ptred_2")
   colnames(myOP.table) <- sppVec
@@ -11,7 +16,7 @@ loadOrthoParalogs <- function(OPtable) {
   for (i in 1:nrow(myOP.table)) {
     this.id <- myOP.table[i,1]
     this.vec <- spp.table[i,]
-    print(head(this.vec))
+    #print(head(this.vec)) #for debugging
     this.list <- strsplit(as.character(unlist(this.vec)), split=",")
     this.vector <- unlist(this.list)
     small.list <- vector(mode="list", length=26)
@@ -25,8 +30,8 @@ loadOrthoParalogs <- function(OPtable) {
       print(j)
       small.list[[j]] <- this.ma[j,]
       names(small.list[[j]]) <- c("Para1", "Para2")
-      print(small.vec)
-      print(this.ma[j,])
+      #print(small.vec)
+      #print(this.ma[j,])
     }
    opList[[i]] <- small.list
   }
