@@ -57,30 +57,26 @@ test.orthoPara <- loadOrthoParalogs("../paralog_datasets/Poff_table_updated_0820
 
 #### The results should look like this:
 ```
-my.import[["WGD00046"]] #this was chosen simply because it's the first ortho-paralog group in the list
-$Pbi
-Para1 Para2 
-  "."   "." 
-
-$Pdec
+> test.orthoPara[[1]]
+$Pbi_1
                  Para1                  Para2 
-                  "NA" "PDEC.223.1.P01260103" 
+                   "?" "PDEC.223.1.P00780011" 
 
-$Pdodec
+$Pdec_1
+                   Para1                    Para2 
+"PDODEC.274.1.P00100052"                      "?" 
+
+$Pdodec_1
 Para1 Para2 
-  "."   "." 
+  "?"   "?" 
 
-$Pjenn
+$Pjenn_1
                 Para1                 Para2 
-"PJENN.M.1.P03370020" "PJENN.M.1.P00800118" 
+"PPENT.87.1.P0080167"         "PPRIMP00822" 
 
-$Pnov
-                Para1                 Para2 
-"PNOV.TE.1.P00320073" "PNOV.TE.1.P00150102" 
-
-$Poct
-                         Para1                          Para2 
-                           "." "POCT.K8.1.P71800002769690106"
+$Pnov_1
+Para1 Para2 
+  "?"   "?" 
 
 ... #results truncated for readability
 ```

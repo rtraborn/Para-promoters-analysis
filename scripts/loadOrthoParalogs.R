@@ -1,5 +1,6 @@
 
 loadOrthoParalogs <- function(OPtable) {
+  ptm <- proc.time()
   if (is.character(OPtable)==FALSE) {
     stop("OPtable must be of class 'character'")
   }
@@ -23,12 +24,13 @@ loadOrthoParalogs <- function(OPtable) {
     small.list <- vector(mode="list", length=26)
     names(small.list) <- sppIds
     this.ma <- matrix(this.vector, nrow=26, ncol=2, byrow=TRUE)
+    print(i)
     for (j in 1:length(sppIds)) {
       this.spp <- sppIds[j]
       small.vec <- vector(mode="character", length=2)
       names(small.vec) <- c("Para1","Para2")
       small.list[[j]] <- small.vec
-      print(j)
+      #print(j)
       small.list[[j]] <- as.character(this.ma[j,])
       names(small.list[[j]]) <- c("Para1", "Para2")
       #print(small.vec)
@@ -36,6 +38,6 @@ loadOrthoParalogs <- function(OPtable) {
     }
    opList[[i]] <- small.list
   }
-  
+  print(proc.time() - ptm)
   return(opList)
 }
