@@ -1,8 +1,3 @@
-# at present this function generates warnings: 
-# output currently looks like this: please check
-#$Ppent
-#Para1 Para2 
-#"1" "948"
 
 loadOrthoParalogs <- function(OPtable) {
   if (is.character(OPtable)==FALSE) {
@@ -12,10 +7,10 @@ loadOrthoParalogs <- function(OPtable) {
   myOP.table <- myOP.table[,-2:-4]
   myOP.table <- myOP.table[,-28]
   message("Importing ortho-paralog table.")
-  sppVec <- c("geneFamID", "Pbi_1", "Pdec_1", "Pdodec_1", "Pjenn_1", "Pnov_1", "Poct_1", "Ppent_1", "Pprim_1", "Pquad_1","Psex_1", "Pson_1", "Ptet_1", "Ptred_1", "Pbi_2", "Pdec_2", "Pdodec_2", "Pjenn_2", "Pnov_2", "Poct_2", "Ppent_2", "Pprim_2", "Pquadec_2", "Psex_2", "Pson_2", "Ptet_2", "Ptred_2", "not_ohno")
+  sppVec <- c("geneFamID", "Pbi_1", "Pdec_1", "Pdodec_1", "Pjenn_1", "Pnov_1", "Poct_1", "Ppent_1", "Pprim_1", "Pquad_1","Psex_1", "Pson_1", "Ptet_1", "Ptred_1", "Pbi_2", "Pdec_2", "Pdodec_2", "Pjenn_2", "Pnov_2", "Poct_2", "Ppent_2", "Pprim_2", "Pquadec_2", "Psex_2", "Pson_2", "Ptet_2", "Ptred_2")
   colnames(myOP.table) <- sppVec
   spp.table <- myOP.table[,-1]
-  sppIds <- c("Pbi_1", "Pdec_1", "Pdodec_1", "Pjenn_1", "Pnov_1", "Poct_1", "Ppent_1", "Pprim_1", "Pquad_1","Psex_1", "Pson_1", "Ptet_1", "Ptred_1", "Pbi_2", "Pdec_2", "Pdodec_2", "Pjenn_2", "Pnov_2", "Poct_2", "Ppent_2", "Pprim_2", "Pquadec_2", "Psex_2", "Pson_2", "Ptet_2", "Ptred_2", "not_ohno")
+  sppIds <- c("Pbi_1", "Pdec_1", "Pdodec_1", "Pjenn_1", "Pnov_1", "Poct_1", "Ppent_1", "Pprim_1", "Pquad_1","Psex_1", "Pson_1", "Ptet_1", "Ptred_1", "Pbi_2", "Pdec_2", "Pdodec_2", "Pjenn_2", "Pnov_2", "Poct_2", "Ppent_2", "Pprim_2", "Pquadec_2", "Psex_2", "Pson_2", "Ptet_2", "Ptred_2")
   colnames(myOP.table) <- sppVec	   
   opList <- vector(mode="list", length=nrow(myOP.table))
   names(opList) <- myOP.table[,1]
