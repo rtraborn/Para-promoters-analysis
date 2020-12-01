@@ -2,7 +2,7 @@
 
 tsrDir=/home/rraborn/Para-promoters-analysis/tsr/MergedTSR_files
 tsrFile=all_TSRsetMerged.txt
-paralogonFile=/home/rraborn/Para-promoters-analysis/paralogon/98_genelist.txt
+paralogonFile=/home/rraborn/Para-promoters-analysis/paralogon/338_genelist.txt
 outFile=tsrMatches.txt
 
 cd $tsrDir
