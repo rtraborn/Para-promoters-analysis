@@ -1,17 +1,16 @@
 #!/usr/bin/sh
 
-annotDir=/home/rraborn/Paramecium_data/annotations
-annotFile=pbi-full.gff
-annotOut=pbi-full-convert.gff
+#annotDir=/home/rraborn/Paramecium_data/annotations
+annotDir=/N/project/ParameciumPromoters/Para-promoters-analysis/paralogon
+
+geneList=98_genelist.txt
+geneListOut=98_genelist_updated.txt
 
 cd $annotDir
 
-echo "Pbi"
-
-cat $annotFile | awk 'BEGIN{OFS="\t";} $3=="gene" {print }' > intrim.file
-perl -pe 's/(ID=PBIA\.V1\_4\.1\.)(G)(\d+)(\;Name=PBIA\.V1\_4\.1\.)(G)(\d+)/\1P\3\4P\6/g' intrim.file > $annotOut
-
 echo "Starting conversion."
+
+perl -pe 's/(\S+)(\.P)(\d+)/\1.G\3/g' $geneList | perl -pe 's/(PPRIM)(P)(\d+)/\1G\3/g' - > $geneListOut
 
 echo "Job complete!"
 
