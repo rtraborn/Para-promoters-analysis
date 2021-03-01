@@ -2,17 +2,17 @@
 
 treeDir=/scratch/rraborn/Paramecium_ortho_groups/Filtered
 
-inputFile=4813.nt_ali.fasta.tre
-geneListOut=$(basename $inputFile .tre).txt
-
 cd $treeDir
+
+for i in *.tre; do
 
 echo "Starting conversion."
 
-echo $inputFile
-echo $geneListOut
+echo $i
 
-cat $inputFile | tr -d '(' | tr ')' '\n' | tr ':' '\n' | tr -d ';' | tr ',' '\n' | sed --expression='/^$/d' | egrep 'P*P[0-9]+' > $geneListOut
+cat $i | tr -d '(' | tr ')' '\n' | tr ':' '\n' | tr -d ';' | tr ',' '\n' | sed --expression='/^$/d' | egrep 'P*P[0-9]+' > $(basename $i .tre).txt
+
+done
 
 echo "Job complete!"
 
