@@ -3,8 +3,8 @@
 #### To run a working example to create an object, please do the following from the /tsr directory
 
 ```
-source("../scripts/buildTSRDb.R")
-source("../scripts/tssToList.R")
+source("../scripts/R_scripts/buildTSRDb.R")
+source("../scripts/R_scripts/tssToList.R")
 
 sampleDb <- buildTSRDb(speciesNames=c("Pdec","Poct","Pnov", "Pjenn"), "Pd_TSRsetMerged.txt", "Po_TSRsetMerged.txt", "Pn_TSRsetMerged.txt", "Pj_TSRsetMerged.txt")
 

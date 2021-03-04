@@ -4,9 +4,9 @@ tsrToList <- function(x, geneID) {
 	   library(GenomicRanges)
 	   this.table  <- x
 	   this.list <- vector(mode="list", length=1)
-	   this.list.2 <- vector(mode="list", length=9)
+	   this.list.2 <- vector(mode="list", length=4)
 	   names(this.list) <- geneID
-	   names(this.list.2) <- c("seq", "coords", "strand", "nTSSs", "nTAGs", "tsrPeak", "tsrWdth", "tsrSI", "tsrMSI")
+	   names(this.list.2) <- c("seq", "start", "end", "strand", "nTAGs")
 	   this.gene <- this.table[this.table$featureID==geneID,]
 	 	        if (nrow(this.gene) == 1) { 
 			this.list.2$seq <- this.gene$seq
