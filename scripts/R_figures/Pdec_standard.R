@@ -164,3 +164,21 @@ plot_heatmap(
 )
 
 ggave(file="Pdec_tss_heatmap.png") #saving the plot
+
+### formatting/normalizing tsrs
+exp <- format_counts(exp, data_type="tsr")
+
+## TSR annotation
+exp <- annotate_features(exp, data_type = "tsr", feature_type="gene")
+
+### plot TSR heatmap
+## this doesn't work yet
+
+plot_heatmap(
+  exp, data_type="tsr", samples=c("Pdec_1","Pdec_2","Pdec_3"),
+  upstream=250, downstream=250,
+  use_normalized=TRUE,
+  rasterize=TRUE, raster_dpi=150
+)
+
+ggave(file="Pdec_tsr_heatmap.png") #saving the plot
