@@ -124,6 +124,8 @@ exp <- annotate_features(exp, data_type = "tss", feature_type="transcript")
 
 #plotting sequence logo for all three replicates
 plot_sequence_logo(exp, samples="Pdec_1")
+ggsave(file="Pdec_r1_sequenceLogo.png")
+### note strange output of plot here
 plot_sequence_logo(exp, samples="Pdec_2")
 plot_sequence_logo(exp, samples="Pdec_3")
 
@@ -163,7 +165,7 @@ plot_heatmap(
   rasterize=TRUE, raster_dpi=150
 )
 
-ggave(file="Pdec_tss_heatmap.png") #saving the plot
+ggsave(file="Pdec_tss_heatmap.png") #saving the plot
 
 ### formatting/normalizing tsrs
 exp <- format_counts(exp, data_type="tsr")
