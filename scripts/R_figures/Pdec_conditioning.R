@@ -131,7 +131,37 @@ ggsave(file="Pdec_r1_by_shape.png")
 
 ### plotting metrics
 
-exp <- plot_tsr_metric(exp, tsr_metrics="iqr_width", samples=c("Pdec_1", "Pdec_2", "Pdec_3"),
+#iqr width
+p <- plot_tsr_metric(exp, tsr_metrics="iqr_width", samples=c("Pdec_1", "Pdec_2", "Pdec_3"),
                    log2_transform = TRUE, ncol=2,
                    data_conditions = conditionals(data_grouping=shape_class)) +
   ggplot2::ylim(c(0,8))
+p
+ggsave(file="Pdec_iqr_allreps.png")
+
+#width
+p <- plot_tsr_metric(exp, tsr_metrics="width", samples=c("Pdec_1", "Pdec_2", "Pdec_3"),
+                     log2_transform = TRUE, ncol=2,
+                     data_conditions = conditionals(data_grouping=shape_class)) +
+  ggplot2::ylim(c(0,8))
+p
+ggsave(file="Pdec_width_allreps.png")
+
+#ntags
+p <- plot_tsr_metric(exp, tsr_metrics="score", samples=c("Pdec_1", "Pdec_2", "Pdec_3"),
+                     log2_transform = TRUE, ncol=2,
+                     data_conditions = conditionals(data_grouping=shape_class)) +
+  ggplot2::ylim(c(0,8))
+p
+ggsave(file="Pdec_nTags_allreps.png")
+
+### plot individual gene track
+
+gene_tracks(exp, feature_name="PDEC.223.1.G00010234", ymax=100,
+            samples=c(TSS=c("Pdec_1","Pdec_2", "Pdec_3"), TSR=c("Pdec_1","Pdec_2","Pdec_3")),
+            feature_type = "transcript"
+)
+
+## this generates an error:
+#Error in match.arg(str_to_lower(names(samples)), c("tss", "tsr"), several.ok = TRUE) : 
+#  'arg' should be one of "tss", "tsr"
