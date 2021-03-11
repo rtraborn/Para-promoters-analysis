@@ -10,8 +10,16 @@ library(ggplot2)
 
 #load("PdSTRIPE_complete.RData")
 #load("PdSTRIPE_testObj.RData")
-load("PdSTRIPE_testObj_tsr.RData")
-load("PdSTRIPE_testObj_tss.RData")
+#load("PdSTRIPE_testObj_tsr.RData")
+#load("PdSTRIPE_testObj_tss.RData")
+
+tss.1 <- read.table(file="Pd_TSSset-1.txt", header=TRUE)
+tss.2 <- read.table(file="Pd_TSSset-2.txt", header=TRUE)
+tss.3 <- read.table(file="Pd_TSSset-3.txt", header=TRUE)
+
+tsr.1 <- read.table(file="Pd_TSRset-1.txt", header=TRUE)
+tsr.2 <- read.table(file="Pd_TSRset-2.txt", header=TRUE)
+tsr.3 <- read.table(file="Pd_TSRset-3.txt", header=TRUE)
 
 #Pd.annot <- "/home/rraborn/scratch/annotations/pdec_cds.gff"
 Pd.annot <- "/home/rraborn/scratch/annotations/pdec-full.gff"
