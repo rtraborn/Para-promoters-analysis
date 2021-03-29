@@ -1,5 +1,7 @@
 #!/usr/bin/sh
 
+### TODO: create a set of if statements to navigate the annotations
+
 #filesList is a config file that contains all of the Paramecium annotations and the associated paths
 
 ### if using Carbonate
@@ -10,11 +12,14 @@
 #Bedtools=/N/soft/rhel7/bedtools/gnu/2.26.0/bin/bedtools
 
 ### if using Agave
-source /home/rraborn/Para-promoters-analysis/scripts/filesList
+
 
 outDir=/home/rraborn/Para-promoters-analysis/paralogon
-geneList=/home/rraborn/Para-promoters-analysis/paralogon/98_genelist_updated.txt
+geneList=$1
 Bedtools=/packages/7x/bedtools/2.17.0/bin/bedtools
+filesList=home/rraborn/Para-promoters-analysis/scripts/filesList
+
+source $filesList
 
 cd $outDir
 
@@ -51,8 +56,8 @@ done < $geneList
 
 #### need to select the appropriate fasta file for the species in question
 for p in *_promoter.bed; do
-	bedtools getfasta -s -fi   -bed $(basename $i _flank.bed)_promoter.bed -fo $(basename $i _flank.bed)_promoter.fasta
+### parse the id column of the bed file and determine which species this coems from
+### this is where the if statements will go
+#	bedtools getfasta -s -fi ###enter bedtools -bed $(basename $i _flank.bed)_promoter.bed -fo $(basename $i _flank.bed)_promoter.fasta
     
 done
-
-### add prank alignment step in subsequent command
