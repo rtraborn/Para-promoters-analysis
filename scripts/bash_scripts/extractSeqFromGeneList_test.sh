@@ -1,5 +1,8 @@
 #!/usr/bin/sh
 
+# TODO: need to add Ptred to the list of paramecium files
+# TODO: incorporate flanking script for each gene
+
 #filesList is a config file that contains all of the Paramecium annotations and the associated paths
 
 ### if using Carbonate
@@ -13,6 +16,7 @@
 source /home/rraborn/Para-promoters-analysis/scripts/filesList
 outDir=/home/rraborn/Para-promoters-analysis/paralogon
 geneList=$1
+annot=/home/rraborn/Para-promoters-analysis/paralogon/ParaGenes_ids.gff
 Bedtools=/packages/7x/bedtools/2.17.0/bin/bedtools
 filesList=/home/rraborn/Para-promoters-analysis/scripts/filesList
 listID=$(basename $1 .txt)
@@ -23,25 +27,25 @@ cd $outDir
 
 echo "Starting job."
 
-for annot in $pbi $ptet $pson $pprim $poct $pjen $pdodec $pcaud $pnov $psex $ppent $pdec $pquad;
-do
+#for annot in $pbi $ptet $pson $pprim $poct $pjen $pdodec $pcaud $pnov $psex $ppent $pdec $pquad;
+#do
 
-awk 'BEGIN{OFS="\t";} $3=="gene" {print }' $annot > $(basename $annot .gff)_gene.gff
-done
+#awk 'BEGIN{OFS="\t";} $3=="gene" {print }' $annot > $(basename $annot .gff)_gene.gff
+#done
 
 echo "Creating the gene-only annotation files."
 
-cat *full_gene.gff > Para_genes.gff
+#cat *full_gene.gff > Para_genes.gff
     
     while read i; do
+	echo $i
 	touch test.out
-	if egrep -q $i Para_genes.gff; then
+	if egrep -q $i $annot; then
 	    echo "Found"
-	    egrep $i Para_genes.gff >> test.out
+	    egrep $i $annot >> test.out
     else
     echo "Not found"
     fi
     done < $geneList
 
 echo "Made it here"
-### need to convert P in the geneID to G again, because bioinformatics is wiild 
