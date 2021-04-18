@@ -56,80 +56,81 @@ echo "Creating id files from each bed file."
 
     cd out_files
     for b in *.bed; do
-	cut -f 9 338_genelistaa.bed | cut -d ';' -f 1 | tr -d 'ID=' > $(basename $b .bed)_id.txt
+	cut -f 9 $b | cut -d ';' -f 1 | tr -d 'ID=' > $(basename $b .bed)_id.txt
 done
 
 echo "Iterating through the bed files"
 
 ### need to think about executing this loop the right way. I currently have incomplete cut statements and I need to fill those in
 
-while read b
+for b in *.bed
 
 do
 
  echo "Reading $b"
 
- echo $b
+ #echo $b
+ eval "var=`cat $(basename $b .bed)_id.txt`";
+ echo $var
 
-        if [[`cut -d "." -f 1`=="PDEC"]]
+        #if [`cut -d "." -f 1 $var` -eq "PDEC"]
+        # continue here
+	if [ grep -q "PDEC" $var  ]
+
 then
-	    $Bedtools flank -i $b -g $pdecGen -b 150
+	    $Bedtools flank -i $b -g $pdecGen -b 150 > $(basename $b .bed)_flank.bed
 fi
-        if [[`cut -d "." -f 1`=="PDODEC"]]
+        if [`cut -d "." -f 1 $var`=="PDODEC"]
 then
-	    $Bedtools flank -i $b -g $pdodecGen -b 150
+	    $Bedtools flank -i $b -g $pdodecGen -b 150 > $(basename $b .bed)_flank.bed
 fi
-       if [[`cut -d "." -f 1`=="PTRED"]]
+       if [`cut -d "." -f 1 $var`=="PTRED"]
 then
-	    $Bedtools flank -i $b -g $ptreGen -b 150
+	    $Bedtools flank -i $b -g $ptreGen -b 150 > $(basename $b .bed)_flank.bed
 fi
-        if [[`cut -d "." -f 1`=="PJENN"]]
+        if [`cut -d "." -f 1 $var`=="PJENN"]
 then
-	    $Bedtools flank -i $b -g $pjennGen -b 150
+	    $Bedtools flank -i $b -g $pjennGen -b 150 > $(basename $b .bed)_flank.bed
 fi
-        if [[`cut -d "." -f 1`=="PNOV"]]
+        if [`cut -d "." -f 1 $var`=="PNOV"]
 then
-	    $Bedtools flank -i $b -g $pnovGen -b 150
+	    $Bedtools flank -i $b -g $pnovGen -b 150 > $(basename $b .bed)_flank.bed
 fi
-        if [[`cut -d "." -f 1`=="POCT"]]
+        if ((`cut -d "." -f 1 $var`=="POCT"))
 then
-	    $Bedtools flank -i $b -g $poctGen -b 150
+	    $Bedtools flank -i $b -g $poctGen -b 150 > $(basename $b .bed)_flank.bed
 fi
-        if [[`cut -d "." -f 1`=="PCAUD"]]
+        if ((`cut -d "." -f 1 $var`=="PCAUD"))
 then
-	    $Bedtools flank -i $b -g $pcaudGen -b 150
+	    $Bedtools flank -i $b -g $pcaudGen -b 150 > $(basename $b .bed)_flank.bed
 fi
-        if [[`cut -d "." -f 1`=="PQUAD"]]
+        if [[`cut -d "." -f 1 $var`=="PQUAD"]]
 then
-	    $Bedtools flank -i $b -g $pquadGen -b 150
+	    $Bedtools flank -i $b -g $pquadGen -b 150 > $(basename $b .bed)_flank.bed
 fi
-        if [[`cut -d "." -f 1`=="PSON"]]
+        if [[`cut -d "." -f 1 $var`=="PSON"]]
 then
-	    $Bedtools flank -i $b -g $psonGen -b 150
+	    $Bedtools flank -i $b -g $psonGen -b 150 > $(basename $b .bed)_flank.bed
 fi
-        if [[`cut -d "." -f 1`=="PPENT"]]
+        if [[`cut -d "." -f 1 $var`=="PPENT"]]
 then
-	    $Bedtools flank -i $b -g $ppentGen -b 150
+	    $Bedtools flank -i $b -g $ppentGen -b 150 > $(basename $b .bed)_flank.bed
 fi
-        if [[`cut -d "." -f 1`=="PBI"]]
+        if [[`cut -d "." -f 1 $var`=="PBI"]]
 then
-	    $Bedtools flank -i $b -g $pbiGen -b 150
+	    $Bedtools flank -i $b -g $pbiGen -b 150 > $(basename $b .bed)_flank.bed
 fi
-        if [[`cut -d "." -f 1`=="PSEX"]]
+        if [[`cut -d "." -f 1 $var`=="PSEX"]]
 then
-	    $Bedtools flank -i $b -g $psexGen -b 150
+	    $Bedtools flank -i $b -g $psexGen -b 150 > $(basename $b .bed)_flank.bed
 fi
-        if [[`cut -d "." -f 1`=="PSEPT"]]
+        if [[`cut -d "." -f 1 $var`=="PSEPT"]]
 then
-	    $Bedtools flank -i $b -g $pseptGen -b 150
+	    $Bedtools flank -i $b -g $pseptGen -b 150 > $(basename $b .bed)_flank.bed
 fi
-        if [[`cut -d "." -f 1`=="PTET"]]
+        if [[`cut -d "." -f 1 $var`=="PTET"]]
 then
-	    $Bedtools flank -i $b -g $ptetGen -b 150
-fi
-	    if [[$i=="NA"]]; then
-echo "Made it here"
-continue
+	    $Bedtools flank -i $b -g $ptetGen -b 150 > $(basename $b .bed)_flank.bed
 fi
 
-done < gene.ids
+done
