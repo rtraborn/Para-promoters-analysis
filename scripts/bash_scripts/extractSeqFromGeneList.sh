@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-### TODO: create a set of if statements to navigate the annotations
+# TODO: need to add Ptred to the list of paramecium files
 
 #filesList is a config file that contains all of the Paramecium annotations and the associated paths
 
@@ -8,16 +8,17 @@
 #source /N/project/ParameciumPromoters/Para-promoters-analysis/scripts/filesList
 
 #outDir=/N/project/ParameciumPromoters/Para-promoters-analysis/paralogon
-#geneList=/N/project/ParameciumPromoters/Para-promoters-analysis/paralogon/98_genelist_updated.txt
+#geneList=$1
 #Bedtools=/N/soft/rhel7/bedtools/gnu/2.26.0/bin/bedtools
 
 ### if using Agave
-
-
+source /home/rraborn/Para-promoters-analysis/scripts/filesList
 outDir=/home/rraborn/Para-promoters-analysis/paralogon
 geneList=$1
+annot=/home/rraborn/Para-promoters-analysis/paralogon/ParaGenes_ids.gff
 Bedtools=/packages/7x/bedtools/2.17.0/bin/bedtools
-filesList=home/rraborn/Para-promoters-analysis/scripts/filesList
+filesList=/home/rraborn/Para-promoters-analysis/scripts/filesList
+listID=$(basename $1 .txt)
 
 source $filesList
 
@@ -25,39 +26,126 @@ cd $outDir
 
 echo "Starting job."
 
-for annot in $pbi $ptet $pson $pprim $poct $pjen $pdodec $pcaud $pnov $psex $ppent $pdec $pquad;
-do
+#for annot in $pbi $ptet $pson $pprim $poct $pjen $pdodec $pcaud $pnov $psex $ppent $pdec $pquad;
+#do
 
-echo "basename $annot"
-awk 'BEGIN{OFS="\t";} $3=="gene" {print }' $annot > $(basename $annot .gff)_gene.gff
+#awk 'BEGIN{OFS="\t";} $3=="gene" {print }' $annot > $(basename $annot .gff)_gene.gff
+#done
+
+echo "Creating the gene-only annotation files."
+
+#cat *full_gene.gff > Para_genes.gff
     
     while read i; do
+	echo $i
 	touch test.out
-	echo $annot
-	if egrep -q $i $(basename $annot .gff)_gene.gff; then
+	if egrep -q $i $annot; then
 	    echo "Found"
-	    egrep $i $(basename $annot .gff)_gene.gff >> test.out
+	    egrep $i $annot >> test.out
     else
     echo "Not found"
-fi
+    fi
+    done < $geneList
 
-done < $geneList
+echo "Creating separate BED files from the genes grepped from the annotation file."
 
     mkdir out_files
-    split -l 1 --additional-suffix=.bed test.out out_files/98_genelist_
+    split -l 1 --additional-suffix=.bed test.out out_files/$listID
 
-#    for b in *_a*.bed; do
-#	$Bedtools -i $b #this needs to be the bedtools flank command, which recognizes the individual -genome file
-#	done
+echo "Creating id files from each bed file."
 
-    for b in *_a*.bed; do
-	bedtools subtract -s -a $(basename $i .bed)_flank.bed -b $i > $(basename $i _flank.bed)_promoter.bed;
-    done
-
-#### need to select the appropriate fasta file for the species in question
-for p in *_promoter.bed; do
-### parse the id column of the bed file and determine which species this coems from
-### this is where the if statements will go
-#	bedtools getfasta -s -fi ###enter bedtools -bed $(basename $i _flank.bed)_promoter.bed -fo $(basename $i _flank.bed)_promoter.fasta
-    
+    cd out_files
+    for b in *.bed; do
+	cut -f 9 $b | cut -d ';' -f 1 | tr -d 'ID=' > $(basename $b .bed)_id.txt
 done
+
+echo "Iterating through the bed files"
+
+### need to think about executing this loop the right way. I currently have incomplete cut statements and I need to fill those in
+
+for b in *.bed
+
+do
+
+ echo "Reading $b"
+
+ #echo $b
+ eval "var=$(basename $b .bed)_id.txt";
+ echo $var
+
+
+	if egrep -q "PDEC" $var;
+then
+	    $Bedtools flank -b 150 -i $b -g $pdecGen > $(basename $b .bed)_flank.bed
+	    echo "$Bedtools flank -i $b -g $pdecGen -b 150 > $(basename $b .bed)_flank.bed"
+	    $Bedtools getfasta -s -fi $pdecFasta -bed $(basename $b .bed)_flank.bed -fo $(basename $b .bed)_flank.fa
+	    echo "$Bedtools getfasta -s -fi $pdecFasta -bed $(basename $b .bed)_flank.bed -fo $(basename $b .bed)_flank.fa"
+fi
+        if grep -q "PDODEC" $var;
+then
+	    $Bedtools flank -b 150 -i $b -g $pdodecGen > $(basename $b .bed)_flank.bed
+	    $Bedtools getfasta -s -fi $pdodecFasta -bed $(basename $b .bed)_flank.bed -fo $(basename $b .bed)_flank.fa
+fi
+       if grep -q "PTRED" $var;
+then
+	    $Bedtools flank -b 150 -i $b -g $ptreGen > $(basename $b .bed)_flank.bed
+	    $Bedtools getfasta -s -fi $ptreFasta -bed $(basename $b .bed)_flank.bed -fo $(basename $b .bed)_flank.fa
+fi
+        if grep -q "PJENN" $var;
+then
+	    $Bedtools flank -b 150 -i $b -g $pjennGen > $(basename $b .bed)_flank.bed
+	    $Bedtools getfasta -s -fi $pjennFasta -bed $(basename $b .bed)_flank.bed -fo $(basename $b .bed)_flank.fa
+fi
+        if grep -q "PNOV" $var;
+then
+	    $Bedtools flank -b 150 -i $b -g $pnovGen > $(basename $b .bed)_flank.bed
+	    $Bedtools getfasta -s -fi $pnovFasta -bed $(basename $b .bed)_flank.bed -fo $(basename $b .bed)_flank.fa
+fi
+        if  grep -q "POCT" $var;
+then
+	    $Bedtools flank -b 150 -i $b -g $poctGen > $(basename $b .bed)_flank.bed
+	    $Bedtools getfasta -s -fi $poctFasta -bed $(basename $b .bed)_flank.bed -fo $(basename $b .bed)_flank.fa
+fi
+        if grep -q "PCAUD" $var;
+then
+	    $Bedtools flank -b 150 -i $b -g $pcaudGen > $(basename $b .bed)_flank.bed
+	    $Bedtools getfasta -s -fi $pcaudFasta -bed $(basename $b .bed)_flank.bed -fo $(basename $b .bed)_flank.fa
+fi
+        if grep -q "PQUAD" $var;
+then
+	    $Bedtools flank -b 150 -i $b -g $pquadGen > $(basename $b .bed)_flank.bed
+	    $Bedtools getfasta -s -fi $pquadFasta -bed $(basename $b .bed)_flank.bed -fo $(basename $b .bed)_flank.fa
+fi
+        if grep -q "PSON" $var;
+then
+	    $Bedtools flank -b 150 -i $b -g $psonGen > $(basename $b .bed)_flank.bed
+	    $Bedtools getfasta -s -fi $psonFasta -bed $(basename $b .bed)_flank.bed -fo $(basename $b .bed)_flank.fa
+fi
+        if grep -q "PPENT" $var;
+then
+	    $Bedtools flank -b 150 -i $b -g $ppentGen > $(basename $b .bed)_flank.bed
+	    $Bedtools getfasta -s -fi $ppentFasta -bed $(basename $b .bed)_flank.bed -fo $(basename $b .bed)_flank.fa
+fi
+        if grep -q "PBI" $var;
+then
+	    $Bedtools flank -b 150 -i $b -g $pbiGen > $(basename $b .bed)_flank.bed
+	    $Bedtools getfasta -s -fi $pbiFasta -bed $(basename $b .bed)_flank.bed -fo $(basename $b .bed)_flank.fa
+fi
+        if grep -q "PSEX" $var;
+then
+	    $Bedtools flank -b 150 -i $b -g $psexGen > $(basename $b .bed)_flank.bed
+	    $Bedtools getfasta -s -fi $psexFasta -bed $(basename $b .bed)_flank.bed -fo $(basename $b .bed)_flank.fa
+fi
+        if grep -q "PSEPT" $var;
+then
+	    $Bedtools flank -b 150 -i $b -g $pseptGen > $(basename $b .bed)_flank.bed
+	    $Bedtools getfasta -s -fi $pseptFasta -bed $(basename $b .bed)_flank.bed -fo $(basename $b .bed)_flank.fa
+fi
+        if grep -q "PTET" $var;
+then
+	    $Bedtools flank -b 150 -i $b -g $ptetGen > $(basename $b .bed)_flank.bed
+	    $Bedtools getfasta -s -fi $ptetFasta -bed $(basename $b .bed)_flank.bed -fo $(basename $b .bed)_flank.fa
+fi
+
+done
+
