@@ -1,13 +1,14 @@
 #!/usr/bin/sh
 
 prank=/home/rraborn/genome_analysis/prank-msa/src/prank
-fasta=/home/rraborn/Para-promoters-analysis/tsr/MergedTSR_files/original_promoter_aln/promoter_seqs.fasta
-outFile=$(basename $1 .fasta)
-myDir=/home/rraborn/Para-promoters-analysis/scripts/bash_scripts
+fastaDir=$1
+fastaID=$2
 
-cd $myDir
+cd $fastaDir
 
-$prank -o=$outFile -f=philips -showtree -support -d=$1
+cat *.fa > ${fastaID}.fa
+
+$prank -o=${fastaID}_aln -f=philips -showtree -support -d=${fastaID}.fa
 
 echo "Job complete!"
 
