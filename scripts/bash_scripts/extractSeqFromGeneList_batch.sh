@@ -3,18 +3,18 @@
 #SBATCH -n 1
 #SBATCH -t 0-8:00
 #SBATCH -A rraborn
-#SBATCH -p cmecpu1
-#SBATCH -q cmeqos
+#SBATCH -p serial
+#SBATCH -q normal
 #SBATCH -o slurm.%j.out
 #SBATCH -e slurm.%j.err
 
-scriptDir=/home/rraborn/Para-promoters-analysis/scripts/bash_scripts
-orthoGroupDir=/scratch/rraborn/Paramecium_ortho_grops/Filtered
+scriptDir=/home/rraborn/Para-promoters-analysis/scripts/bash_scripts/
+orthoGroupDir=/scratch/rraborn/Paramecium_ortho_groups/Filtered
 
-cd $scriptDir
+cd $orthoGroupDir
 
-for l in ${orthoGroupDir}/*.nt_ali.fasta.txt; do
-./extractSeqFromGeneList.sh $orthoGroupDir/$l
+for l in *.nt_ali.fasta.tre.txt; do
+    $scriptDir/extractSeqFromGeneList.sh $l
 done
 
 echo "Job complete!"
