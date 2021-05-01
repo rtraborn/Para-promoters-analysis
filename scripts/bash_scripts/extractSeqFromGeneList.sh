@@ -10,6 +10,7 @@ source /home/rraborn/Para-promoters-analysis/scripts/filesList
 geneList=$1
 annot=/home/rraborn/Para-promoters-analysis/paralogon/ParaGenes_ids.gff
 Bedtools=/packages/7x/bedtools/2.17.0/bin/bedtools
+reheaderFasta=/home/rraborn/Para-promoters-analysis/scripts/bash_scripts/reheaderFasta.sh
 filesList=/home/rraborn/Para-promoters-analysis/scripts/filesList
 listID=$(basename $1 .nt_ali.fasta.txt)_
 outDir=/scratch/rraborn/Paramecium_ortho_groups/sample_test
@@ -67,78 +68,90 @@ do
  eval "var=$(basename $b .gff)_id.txt";
  echo $var
 
-
 	if grep -q "PDEC" $var;
 then
 	    $Bedtools flank -s -l 150 -r 0 -i $b -g $pdecGen > $(basename $b .gff)_flank.gff
 	    echo "$Bedtools flank -i $b -g $pdecGen -b 150 > $(basename $b .bed)_flank.bed"
 	    $Bedtools getfasta -name -s -fi $pdecFasta -bed $(basename $b .gff)_flank.gff -fo $(basename $b .gff)_flank.fa
-	    echo "$Bedtools getfasta -s -fi $pdecFasta -bed $(basename $b .bed)_flank.bed -fo $(basename $b .bed)_flank.fa"
+	    $reheaderFasta $(basename $b .gff)_flank.fa $(basename $b .gff)_flank.gff
 fi
         if grep -q "PDODEC" $var;
 then
 	    $Bedtools flank -s -l 150 -r 0 -i $b -g $pdodecGen > $(basename $b .gff)_flank.gff
 	    $Bedtools getfasta -name -s -fi $pdodecFasta -bed $(basename $b .gff)_flank.gff -fo $(basename $b .gff)_flank.fa
+	    $reheaderFasta $(basename $b .gff)_flank.fa $(basename $b .gff)_flank.gff
 fi
        if grep -q "PTRED" $var;
 then
 	    $Bedtools flank -s -l 150 -r 0 -i $b -g $ptreGen > $(basename $b .gff)_flank.gff
 	    $Bedtools getfasta -name -s -fi $ptreFasta -bed $(basename $b .gff)_flank.bed -fo $(basename $b .gff)_flank.fa
+	    $reheaderFasta $(basename $b .gff)_flank.fa $(basename $b .gff)_flank.gff
 fi
         if grep -q "PJENN" $var;
 then
 	    $Bedtools flank -s -l 150 -r 0 -i $b -g $pjennGen > $(basename $b .gff)_flank.gff
 	    $Bedtools getfasta -name -s -fi $pjennFasta -bed $(basename $b .gff)_flank.gff -fo $(basename $b .gff)_flank.fa
+	    $reheaderFasta $(basename $b .gff)_flank.fa $(basename $b .gff)_flank.gff
 fi
         if grep -q "PNOV" $var;
 then
 	    $Bedtools flank -s -l 150 -r 0 -i $b -g $pnovGen > $(basename $b .gff)_flank.gff
 	    $Bedtools getfasta -name -s -fi $pnovFasta -bed $(basename $b .gff)_flank.gff -fo $(basename $b .gff)_flank.fa
+	    $reheaderFasta $(basename $b .gff)_flank.fa $(basename $b .gff)_flank.gff
 fi
         if  grep -q "POCT" $var;
 then
 	    $Bedtools flank -s -l 150 -r 0 -i $b -g $poctGen > $(basename $b .gff)_flank.gff
 	    $Bedtools getfasta -name -s -fi $poctFasta -bed $(basename $b .gff)_flank.gff -fo $(basename $b .gff)_flank.fa
+	    $reheaderFasta $(basename $b .gff)_flank.fa $(basename $b .gff)_flank.gff
 fi
         if grep -q "PCAUD" $var;
 then
 	    $Bedtools flank -s -l 150 -r 0 -i $b -g $pcaudGen > $(basename $b .gff)_flank.gff
 	    $Bedtools getfasta -name -s -fi $pcaudFasta -bed $(basename $b .gff)_flank.gff -fo $(basename $b .gff)_flank.fa
+	    $reheaderFasta $(basename $b .gff)_flank.fa $(basename $b .gff)_flank.gff
 fi
         if grep -q "PQUAD" $var;
 then
 	    $Bedtools flank -s -l 150 -r 0 -i $b -g $pquadGen > $(basename $b .gff)_flank.gff
 	    $Bedtools getfasta -name -s -fi $pquadFasta -bed $(basename $b .gff)_flank.gff -fo $(basename $b .gff)_flank.fa
+	    $reheaderFasta $(basename $b .gff)_flank.fa $(basename $b .gff)_flank.gff
 fi
         if grep -q "PSON" $var;
 then
 	    $Bedtools flank -s -l 150 -r 0 -i $b -g $psonGen > $(basename $b .gff)_flank.gff
 	    $Bedtools getfasta -name -s -fi $psonFasta -bed $(basename $b .gff)_flank.gff -fo $(basename $b .gff)_flank.fa
+	    $reheaderFasta $(basename $b .gff)_flank.fa $(basename $b .gff)_flank.gff
 fi
         if grep -q "PPENT" $var;
 then
 	    $Bedtools flank -s -l 150 -r 0 -i $b -g $ppentGen > $(basename $b .gff)_flank.gff
 	    $Bedtools getfasta -name -s -fi $ppentFasta -bed $(basename $b .gff)_flank.gff -fo $(basename $b .gff)_flank.fa
+	    $reheaderFasta $(basename $b .gff)_flank.fa $(basename $b .gff)_flank.gff
 fi
         if grep -q "PBI" $var;
 then
 	    $Bedtools flank -s -l 150 -r 0 -i $b -g $pbiGen > $(basename $b .gff)_flank.gff
 	    $Bedtools getfasta -name -s -fi $pbiFasta -bed $(basename $b .gff)_flank.gff -fo $(basename $b .gff)_flank.fa
+	    $reheaderFasta $(basename $b .gff)_flank.fa $(basename $b .gff)_flank.gff
 fi
         if grep -q "PSEX" $var;
 then
 	    $Bedtools flank -s -l 150 -r 0 -i $b -g $psexGen > $(basename $b .gff)_flank.gff
 	    $Bedtools getfasta -name -s -fi $psexFasta -bed $(basename $b .gff)_flank.gff -fo $(basename $b .gff)_flank.fa
+	    $reheaderFasta $(basename $b .gff)_flank.fa $(basename $b .gff)_flank.gff
 fi
         if grep -q "PSEPT" $var;
 then
 	    $Bedtools flank -s -l 150 -r 0 -i $b -g $pseptGen > $(basename $b .gff)_flank.gff
 	    $Bedtools getfasta -name -s -fi $pseptFasta -bed $(basename $b .gff)_flank.gff -fo $(basename $b .gff)_flank.fa
+	    $reheaderFasta $(basename $b .gff)_flank.fa $(basename $b .gff)_flank.gff
 fi
         if grep -q "PTET" $var;
 then
 	    $Bedtools flank -s -l 150 -r 0 -i $b -g $ptetGen > $(basename $b .gff)_flank.gff
 	    $Bedtools getfasta -name -s -fi $ptetFasta -bed $(basename $b .gff)_flank.gff -fo $(basename $b .gff)_flank.fa
+	    $reheaderFasta $(basename $b .gff)_flank.fa $(basename $b .gff)_flank.gff
 fi
 
 done
