@@ -1,7 +1,7 @@
 #!/usr/bin/sh
 
 # TODO: need to add Ptred to the list of paramecium files
-# TODO: need to reheader the *_flank.fa files somehow, as bedtools getFasta is pulling from the 3rd, not 9th, column (as it should for the gff file)
+# TODO: need to figure out why so many split gff and fa files are being generated
 
 #filesList is a config file that contains all of the Paramecium annotations, assemblies, .genome files, respectively, and the associated paths
 
