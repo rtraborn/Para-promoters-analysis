@@ -1,7 +1,7 @@
 #!/usr/bin/sh
 
 # TODO: need to add Ptred to the list of paramecium files
-# TODO: need to figure out why so many split gff and fa files are being generated
+# TODO: need solve the problem of the 8 missing fasta files in the _flank.gff example
 
 #filesList is a config file that contains all of the Paramecium annotations, assemblies, .genome files, respectively, and the associated paths
 
