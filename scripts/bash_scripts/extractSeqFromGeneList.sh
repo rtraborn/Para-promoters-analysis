@@ -30,7 +30,8 @@ echo "Starting job."
 echo "Creating the gene-only annotation files."
 
 #cat *full_gene.gff > Para_genes.gff
-    
+#rm gene.out    
+
     while read i; do
 	echo $i
 	touch gene.out
@@ -89,7 +90,7 @@ then
 fi
         if grep -q "PJENN" $var;
 then
-	    $Bedtools flank -s -l 150 -r 0 -i $b -g $pjennGen > $(basename $b .gff)_flank.gff
+	    $Bedtools flank -s -l 150 -r 0 -i $b -g $pjenGen > $(basename $b .gff)_flank.gff
 	    $Bedtools getfasta -name -s -fi $pjennFasta -bed $(basename $b .gff)_flank.gff -fo $(basename $b .gff)_flank.fa
 	    $reheaderFasta $(basename $b .gff)_flank.fa $(basename $b .gff)_flank.gff
 fi
