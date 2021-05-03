@@ -1,6 +1,5 @@
 #!/usr/bin/sh
 
-# TODO: need to add Ptred to the list of paramecium files
 # TODO: need solve the problem of the 8 missing fasta files in the _flank.gff example
 
 #filesList is a config file that contains all of the Paramecium annotations, assemblies, .genome files, respectively, and the associated paths
@@ -17,6 +16,7 @@ outDir=/scratch/rraborn/Paramecium_ortho_groups/sample_test
 
 source $filesList
 
+
 cd $outDir
 
 echo "Starting job."
@@ -29,12 +29,17 @@ echo "Starting job."
 
 echo "Creating the gene-only annotation files."
 
-#cat *full_gene.gff > Para_genes.gff
-#rm gene.out    
+	if [ -f gene.out ]
+	then
+	    printf "Error:\n gene.out already exists.\n Please check.\n"
+	    exit 1
+	else
+	touch gene.out
+	fi
 
     while read i; do
 	echo $i
-	touch gene.out
+
 	if egrep -q $i $annot; then
 	    echo "Found"
 	    egrep $i $annot >> gene.out
@@ -46,6 +51,11 @@ echo "Creating the gene-only annotation files."
 echo "Creating separate BED files from the genes grepped from the annotation file."
 
     listID=$(basename $listID .nt_ali.fasta.txt)
+if [ -d out_files ]
+then
+   printf "Error:\n the folder out_files/ exists.\n Please check.\n"
+   exit 1
+fi
     mkdir out_files
     split -l 1 --additional-suffix=.gff gene.out $listID
     mv *.gff out_files
@@ -54,7 +64,9 @@ echo "Creating id files from each bed file."
 
     cd out_files
     for b in *.gff; do
-	cut -f 9 $b | cut -d ';' -f 1 | tr -d 'ID=' > $(basename $b .gff)_id.txt
+#	cut -f 9 $b | cut -d ';' -f 1 | tr -d '^ID=' > $(basename $b .gff)_id.txt
+	cut -f 9 $b | cut -d ';' -f 1 | sed 's/^ID\=//g' > $(basename $b .gff)_id.txt
+
 done
 
 echo "Iterating through the bed files"
@@ -91,7 +103,7 @@ fi
         if grep -q "PJENN" $var;
 then
 	    $Bedtools flank -s -l 150 -r 0 -i $b -g $pjenGen > $(basename $b .gff)_flank.gff
-	    $Bedtools getfasta -name -s -fi $pjennFasta -bed $(basename $b .gff)_flank.gff -fo $(basename $b .gff)_flank.fa
+	    $Bedtools getfasta -name -s -fi $pjenFasta -bed $(basename $b .gff)_flank.gff -fo $(basename $b .gff)_flank.fa
 	    $reheaderFasta $(basename $b .gff)_flank.fa $(basename $b .gff)_flank.gff
 fi
         if grep -q "PNOV" $var;
@@ -130,7 +142,7 @@ then
 	    $Bedtools getfasta -name -s -fi $ppentFasta -bed $(basename $b .gff)_flank.gff -fo $(basename $b .gff)_flank.fa
 	    $reheaderFasta $(basename $b .gff)_flank.fa $(basename $b .gff)_flank.gff
 fi
-        if grep -q "PBI" $var;
+        if grep -q "PBIA" $var;
 then
 	    $Bedtools flank -s -l 150 -r 0 -i $b -g $pbiGen > $(basename $b .gff)_flank.gff
 	    $Bedtools getfasta -name -s -fi $pbiFasta -bed $(basename $b .gff)_flank.gff -fo $(basename $b .gff)_flank.fa
