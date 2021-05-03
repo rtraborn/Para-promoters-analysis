@@ -55,6 +55,6 @@ pquad=${annotDir}/pquad-full.gff
 pquadGen=${genDir}/pquad_mod.genome
 pquadFasta=${genDir}/pquad_mod.fa
 
-ptre=${genDir}/ptre-full.gff
+ptre=${annotDir}/ptre-full.gff
 ptreGen=${genDir}/ptre_mod.genome
 ptreFasta=${genDir}/ptre_mod.fa
