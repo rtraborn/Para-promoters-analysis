@@ -11,7 +11,7 @@ reheaderFasta=/home/rraborn/Para-promoters-analysis/scripts/bash_scripts/reheade
 makeAlignPrank=/home/rraborn/Para-promoters-analysis/scripts/bash_scripts/makeAlignPrank.sh
 megaDistanceEst=/home/rraborn/Para-promoters-analysis/scripts/bash_scripts/megaDistanceEst.sh
 filesList=/home/rraborn/Para-promoters-analysis/scripts/filesList
-listID=$(basename $1 .nt_ali.fasta.txt)_
+listID=$(basename $1 .nt_ali.fasta.txt)
 outDir=/scratch/rraborn/Paramecium_ortho_groups/sample_test
 
 source $filesList
@@ -27,14 +27,16 @@ echo "Starting job."
 #awk 'BEGIN{OFS="\t";} $3=="gene" {print }' $annot > $(basename $annot .gff)_gene.gff
 #done
 
+listIDnew=$(basename $listID .nt_ali.fasta.txt)
+
 echo "Creating the gene-only annotation files."
 
-	if [ -f gene.out ]
+	if [ -f "$listIDnew".out ]
 	then
-	    printf "Error:\n gene.out already exists.\n Please check.\n"
+	    printf "Error:\n $listID.out already exists.\n Please check.\n"
 	    exit 1
 	else
-	touch gene.out
+	touch "$listIDnew".out
 	fi
 
     while read i; do
@@ -42,7 +44,7 @@ echo "Creating the gene-only annotation files."
 
 	if egrep -q $i $annot; then
 	    echo "Found"
-	    egrep $i $annot >> gene.out
+	    egrep $i $annot >> "$listIDnew".out
     else
     echo "Not found"
     fi
@@ -50,19 +52,18 @@ echo "Creating the gene-only annotation files."
 
 echo "Creating separate BED files from the genes grepped from the annotation file."
 
-    listIDnew=$(basename $listID .nt_ali.fasta.txt)
-if [ -d out_files ]
+if [ -d "$listIDnew"_files ]
 then
-   printf "Error:\n the folder out_files/ exists.\n Please check.\n"
+   printf "Error:\n the folder $(listIDnew)_files exists.\n Please check.\n"
    exit 1
 fi
-    mkdir out_files
-    split -l 1 --additional-suffix=.gff gene.out $listIDnew
-    mv *.gff out_files
+    mkdir "$listIDnew"_files
+    split -l 1 --additional-suffix=.gff "$listIDnew".out $listIDnew
+    mv *.gff "$listIDnew"_files
 
 echo "Creating id files from each bed file."
 
-    cd out_files
+    cd "$listIDnew"_files
     for b in *.gff; do
 #	cut -f 9 $b | cut -d ';' -f 1 | tr -d '^ID=' > $(basename $b .gff)_id.txt
 	cut -f 9 $b | cut -d ';' -f 1 | sed 's/^ID\=//g' > $(basename $b .gff)_id.txt
@@ -184,6 +185,6 @@ mkdir mega_files
 
 aln_file=`ls *_aln.best.fas`
 
-$megaDistanceEst $aln_file  mega_files
+$megaDistanceEst $aln_file mega_files
 
 echo "Job complete!"
