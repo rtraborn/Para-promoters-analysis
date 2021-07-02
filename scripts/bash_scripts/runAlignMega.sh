@@ -12,7 +12,7 @@ makeAlignPrank=/home/rraborn/Para-promoters-analysis/scripts/bash_scripts/makeAl
 megaDistanceEst=/home/rraborn/Para-promoters-analysis/scripts/bash_scripts/megaDistanceEst.sh
 filesList=/home/rraborn/Para-promoters-analysis/scripts/filesList
 listID=$(basename $1 .nt_ali.fasta.txt)
-outDir=/scratch/rraborn/Paramecium_ortho_groups/sample_test
+outDir=$2
 
 source $filesList
 
