@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ### Repository for Paramecium promoters data analysis/
 
 Raborn, Licknack et al., 2022, in Preparation
@@ -101,5 +100,3 @@ getwd("../tss")
 source("../scripts/buildTSSDb.R")
 sampleDb_tss <- buildTSSDb(speciesNames=c("Pdec","Poct","Pnov", "Pjenn"), "PdecTSS_intersect.bed", "PoctTSS_intersect.bed", "PnovTSS_intersect.bed", "PjenTSS_intersect.bed")
 ```
-
-

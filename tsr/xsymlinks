@@ -1,0 +1,26 @@
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PdSTRIPE/tsr/TSRset-1.tab Pd_TSRset-1.tab
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PdSTRIPE/tsr/TSRset-2.tab Pd_TSRset-2.tab 
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PdSTRIPE/tsr/TSRset-3.tab Pd_TSRset-3.tab 
+
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PnSTRIPE/tsr/TSRset-1.tab Pn_TSRset-1.tab
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PnSTRIPE/tsr/TSRset-2.tab Pn_TSRset-2.tab
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PnSTRIPE/tsr/TSRset-3.tab Pn_TSRset-3.tab
+
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PoSTRIPE/tsr/TSRset-1.tab Po_TSRset-1.tab
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PoSTRIPE/tsr/TSRset-2.tab Po_TSRset-2.tab
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PoSTRIPE/tsr/TSRset-3.tab Po_TSRset-3.tab
+
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PjSTRIPE/tsr/TSRset-1.tab Pj_TSRset-1.tab
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PjSTRIPE/tsr/TSRset-2.tab Pj_TSRset-2.tab
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PjSTRIPE/tsr/TSRset-3.tab Pj_TSRset-3.tab
+
+###
+
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PjSTRIPE/tsr/TSRsetMerged-1.txt Pj_TSRsetMerged.txt
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PdSTRIPE/tsr/TSRsetMerged-1.txt Pd_TSRsetMerged.txt
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PnSTRIPE/tsr/TSRsetMerged-1.txt Pn_TSRsetMerged.txt
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PoSTRIPE/tsr/TSRsetMerged-1.txt Po_TSRsetMerged.txt
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PtSTRIPE/tsr/TSRsetMerged-1.txt Pt_TSRsetMerged.txt
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PtredSTRIPE/tsr/TSRsetMerged-1.txt Ptred_TSRsetMerged.txt
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PdodecSTRIPE/tsr/TSRsetMerged-1.txt Pdodec_TSRsetMerged.txt
+ln -s /N/u/rtraborn/Carbonate/ParameciumPromoters/stripe_seq/PprimSTRIPE/tsr/TSRsetMerged-1.txt Pprim_TSRsetMerged.txt

@@ -1,0 +1,86 @@
+MUSCLE (3.8) multiple sequence alignment
+
+
+Pdec|scaffold_0466:23397-23544        -------------CATATTCATTAAACTT--CTCAGGCTAATGTTT--------------
+Ptred|scf7180000129388:372874-37      --------------ATATTCACTGAAGTA--TTCTGGTTAATGTTT--------------
+Poct|scf7180000277051:261934-262      -------------------TATTTAATTC--ATAAATTACACATTC--------------
+Pdodec|scaffold_0477:27161-27361      ------------TTGCTTTCATTCATTTT--GTTAAATATATTTTT--------------
+Poct|scf7180000277081:473929-474      TATTACTTATAATCGGATTCATTCATATT--TTTAATTATATTTCT--------------
+Pprim|scaffold_007:459099-459299      ---GAGTCATAATTACTTCCACTCATATT--GTTAAATGTATTTTCTATTAAAA------
+Pnov|scaffold_0020:49966-50195        TCTTAGTCATAATTGCCTTCATTCATGTT--ATTAAATATATTTCT--------------
+Pnov|scaffold_0100:54959-55066        ------------------------------------------------------------
+Pdec|scaffold_0141:165895-166095      -----------------TTTAATTATTTTCTATTAAATATATTTTT-------------C
+Pdodec|scaffold_0037:295022-2952      ---------------TATTTATTTATTTTCTATTAAATTTATTTTTGCATTTGTAAAAAA
+                                                                                                  
+
+Pdec|scaffold_0466:23397-23544        ------------------------------------------------------------
+Ptred|scf7180000129388:372874-37      ------------------------------------------------------------
+Poct|scf7180000277051:261934-262      -------------------AATACAATCTATACTATTATTATTATA--AAACAGATTAAA
+Pdodec|scaffold_0477:27161-27361      ---CTATTAAATTGCTTCGAATATATTT-------GTATATATATATGAAG---------
+Poct|scf7180000277081:473929-474      ----ATTAAATTTGCTTCGAATATATTT-------GTATATATATATATGAAAG------
+Pprim|scaffold_007:459099-459299      ------------TTCTTTAAAAATTTAT-------GTATTTATATATGAAAAAGAGGG--
+Pnov|scaffold_0020:49966-50195        ----ATTAAATTGGATCAAAATATGTAT-------GTATTTATATATGAGGGGG------
+Pnov|scaffold_0100:54959-55066        ------------------------------------------------------------
+Pdec|scaffold_0141:165895-166095      ATTTGTAATGTTTAATTTTAATATGTTTTATATTAACATTATTATAGAATGTATT-----
+Pdodec|scaffold_0037:295022-2952      ATTCGTAATGTTTAATTTTAATATGTTTTATACTAACATTATTATA--------------
+                                                                                                  
+
+Pdec|scaffold_0466:23397-23544        ---------TGGAAGATCTTTCAAAATTGGATTGTCAAGAGGATTAACTC----------
+Ptred|scf7180000129388:372874-37      ---------AGGTGCATCTTTCAAAATTGGATTGTCAAAAGGATCAACTT----------
+Poct|scf7180000277051:261934-262      ATTAAACAATAAAAAAGCAAAATATATTTAATAGAAATTAAAA--AATAAATAAATGAAA
+Pdodec|scaffold_0477:27161-27361      ---------GAGAGGGGGGTTGATATATTAATTAACACAAAAAA-AATTGACAAATGCAA
+Poct|scf7180000277081:473929-474      ---------GGAAGGGGGGGTTGATAATTAATAAACAAAAAAAATAATTGACAAATGCAA
+Pprim|scaffold_007:459099-459299      ---------GGGGATGGACTTATATATATAATTATCA--AAAATTAATTGATAAATGCAA
+Pnov|scaffold_0020:49966-50195        ---------GGGGGAAGGATATATAAATTAATTATCAAAAAAAT-AATTGATAAATGCAA
+Pnov|scaffold_0100:54959-55066        --------------------------AATAATTATCATAAAAAATAATTGATATATGCAA
+Pdec|scaffold_0141:165895-166095      ---------GAGAGTGGAATTTATGAATTAAATATCATTAA---TAATTGATAAATGTAA
+Pdodec|scaffold_0037:295022-2952      --------------GATTGTATTGAGAGTAAATATCATTAAA---AATTGATAAATGTAA
+                                                                    *     *  *     **             
+
+Pdec|scaffold_0466:23397-23544        -----------TAAGCCAATTTTTCTAGATTTCTTTATCTAGTTGCATTTGTCAATTA-T
+Ptred|scf7180000129388:372874-37      -----------TAAGCCATTTTTTAGAGAATTCTTTATCCTATTGCATTTATCAATTATT
+Poct|scf7180000277051:261934-262      GGAAAGGATGCGAAAAGACCTTCACAAAAACAG---------------------ACAA-A
+Pdodec|scaffold_0477:27161-27361      CTAGA------TAAAGAAATCTAGAAAAATTGGCTTAG---------------AGTTA-A
+Poct|scf7180000277081:473929-474      CTAGA------TAAAGAAATCTAGAAAAATTGGCTTAG---------------AGTAA-A
+Pprim|scaffold_007:459099-459299      GAGAG------TAAAGAATTCTCGTAAAATTGGCTTAG---------------AGTTG-A
+Pnov|scaffold_0020:49966-50195        TAGGA------TAAAGAATTCTCGAAAAAATGGCTTAA---------------AGTTG-A
+Pnov|scaffold_0100:54959-55066        CAAGA------TAAAGAAATCTCGAAAAATTGGCTTAG---------------AGTTG-A
+Pdec|scaffold_0141:165895-166095      AAAGA------TAAAGGAATCTCAAAAAATTGGCTTAG---------------AATTG-A
+Pdodec|scaffold_0037:295022-2952      AAAGA------TAAAGGAAACTCAAAAAATTGGCTTAG---------------AATTG-A
+                                                  **   *   *    * *                               
+
+Pdec|scaffold_0466:23397-23544        TTTTTGTGTT-----AATTAATTTATCAACCCC---------------------------
+Ptred|scf7180000129388:372874-37      TTTTTTTGAT-----TATTTATTTATATACCCCCTTTTCTATATATATATGTACATACAT
+Poct|scf7180000277051:261934-262      TCCACAAGACTAAGAACTTTAATTT--AA-------------------------------
+Pdodec|scaffold_0477:27161-27361      TCCTCTTGAC-----AATCCAATTTTGAA-------------------------------
+Poct|scf7180000277081:473929-474      TCCACTTGAA-----AATCCAATTTTGAA-------------------------------
+Pprim|scaffold_007:459099-459299      TCCTTTTGAC-----AATCCAATTTTGAA-------------------------------
+Pnov|scaffold_0020:49966-50195        TCCTTTTGAC-----AATCCTATTTTGAA-------------------------------
+Pnov|scaffold_0100:54959-55066        TCCTTTTGAT-----ACTCCAATTTTAAA-------------------------------
+Pdec|scaffold_0141:165895-166095      TCCTTTTGAT-----ACTCCAATTTTAAA-------------------------------
+Pdodec|scaffold_0037:295022-2952      TCCTTTTGAT-----ACTCCAATTTTAAA-------------------------------
+                                      *      *         *    **    *                               
+
+Pdec|scaffold_0466:23397-23544        ------------------------------------------------------------
+Ptred|scf7180000129388:372874-37      ATTTGCTGCAATTTAATAGAAATATATTTAATTACATGAGTCAAAGCAATTCTGAGTTAG
+Poct|scf7180000277051:261934-262      ---------------------------------GGAAGAATTAAAACAAAAATTTG----
+Pdodec|scaffold_0477:27161-27361      ---------------------------------GGATCTTCCAAAACAT-----------
+Poct|scf7180000277081:473929-474      ---------------------------------GGATCCTCCAAA---------------
+Pprim|scaffold_007:459099-459299      ---------------------------------AG-------------------------
+Pnov|scaffold_0020:49966-50195        ---------------------------------AGATGCACCAAAACATTAACCAGATTA
+Pnov|scaffold_0100:54959-55066        ---------------------------------AGATGCACCATA---------------
+Pdec|scaffold_0141:165895-166095      ---------------------------------AGATGC---------------------
+Pdodec|scaffold_0037:295022-2952      ---------------------------------AGATGCACCAAAACA------------
+                                                                                                  
+
+Pdec|scaffold_0466:23397-23544        -------------
+Ptred|scf7180000129388:372874-37      AATCATCTCAAGA
+Poct|scf7180000277051:261934-262      -------------
+Pdodec|scaffold_0477:27161-27361      -------------
+Poct|scf7180000277081:473929-474      -------------
+Pprim|scaffold_007:459099-459299      -------------
+Pnov|scaffold_0020:49966-50195        GTTT---------
+Pnov|scaffold_0100:54959-55066        -------------
+Pdec|scaffold_0141:165895-166095      -------------
+Pdodec|scaffold_0037:295022-2952      -------------
+                                                   
