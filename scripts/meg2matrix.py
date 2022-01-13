@@ -5,7 +5,8 @@ import string
 import argparse
 
 parser = argparse.ArgumentParser(description="Converts Mega output to parsable matrix table for analysis")
-parser.add_argument("mega_file", help="Mega dataset for input")
+parser.add_argument("mega_data", help="Name of csv output file")
+args = parser.parse_args()
 
 def meg2matrix():
 
@@ -19,6 +20,10 @@ lines = myOutput.readlines()
 geneData = []
 matData = []
 for x in lines:
-    # write code to begin after the ';'
-    print("Code goes here")
-myOutput.close()
+    #if '\;' in lines: #TODO get these lines to work               
+    #    for lines in f:
+    #        print("here")
+    myOutput.close()
+
+
+print("Mega parser complete!")
