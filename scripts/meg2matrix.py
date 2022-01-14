@@ -1,5 +1,6 @@
 #!/home/rraborn/anaconda3/bin/python
 
+import re
 import pandas as pd
 import string
 import argparse
@@ -19,10 +20,11 @@ myOutput = open(args.mega_data, "r")
 lines = myOutput.readlines()
 geneData = []
 matData = []
+str = "\;"
+pat = re.compile(r"\bd\w*r\b", re.IGNORECASE)  # upper and lowercase will match
 for x in lines:
-    #if '\;' in lines: #TODO get these lines to work               
-    #    for lines in f:
-    #        print("here")
+    if pat.search(str) != None: # TODO: need to get this to match
+        print("Found it.")
     myOutput.close()
 
 
