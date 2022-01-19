@@ -20,12 +20,17 @@ myOutput = open(args.mega_data, "r")
 lines = myOutput.readlines()
 geneData = []
 matData = []
-str = "\;"
-pat = re.compile(r"\bd\w*r\b", re.IGNORECASE)  # upper and lowercase will match
+#str = r'\;'
+str = r'\[d+ \]' #TODO need to fix this regex
+new_file = []
 for x in lines:
-    if pat.search(str) != None: # TODO: need to get this to match
-        print("Found it.")
+    match = re.search(str, x, re.MULTILINE)
+    if match:
+        new_line = match.group() + '\n'
+        new_file.append(new_line)
+        print(x)
     myOutput.close()
 
+print(new_file)
 
 print("Mega parser complete!")
