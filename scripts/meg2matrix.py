@@ -34,14 +34,24 @@ print("The number of taxa is:", nTaxa)
 
 #obtaining the geneID list
 for line in lines[34:endPoint]:
-    geneSplit=line.split("#")
+    line2=line.replace("\n", "")
+    geneSplit=line2.split("#")
     geneID=geneSplit[1]
     geneData.append(geneID)
     myOutput.close()
 
 
-#for line in lines[newStart:newEnd]:
-    #### the same thing but for the matrix data
+newStart=endPoint+2
+newEnd=endPoint+n_taxa
+print("newStart is:", newStart)
+print("newEnd is:", newEnd)
 
+for line in lines[newStart:newEnd]:
+    #print(line)
+    fixedLine=line.replace("\n", "")
+    matData.append(fixedLine)
+    myOutput.close()
+    
 print(geneData)
+print(matData)
 print("Mega parser complete!")
