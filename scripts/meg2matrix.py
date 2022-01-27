@@ -41,17 +41,23 @@ for line in lines[34:endPoint]:
     myOutput.close()
 
 
-newStart=endPoint+2
-newEnd=endPoint+n_taxa
+newStart=endPoint+3
+newEnd=endPoint+n_taxa+1
 print("newStart is:", newStart)
 print("newEnd is:", newEnd)
 
 for line in lines[newStart:newEnd]:
-    #print(line)
     fixedLine=line.replace("\n", "")
-    matData.append(fixedLine)
+    fixedLine2=fixedLine.replace(",", "")
+    fixedLine3=fixedLine2.split("]")[1]
+    matData.append(fixedLine3)
     myOutput.close()
+
+matData_new = pd.DataFrame(matData)
+print("The number of rows in matData_new is", matData_new.shape[0])
+
+print(matData_new)
     
-print(geneData)
-print(matData)
 print("Mega parser complete!")
+
+## TODO: need to figure out why there are only 18 rows in the sample dataset (21177_aln.meg)
