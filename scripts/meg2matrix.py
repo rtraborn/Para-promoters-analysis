@@ -42,7 +42,7 @@ for line in lines[34:endPoint]:
 
 
 newStart=endPoint+3
-newEnd=endPoint+n_taxa+1
+newEnd=endPoint+n_taxa+2
 print("newStart is:", newStart)
 print("newEnd is:", newEnd)
 
@@ -57,7 +57,11 @@ matData_new = pd.DataFrame(matData)
 print("The number of rows in matData_new is", matData_new.shape[0])
 
 print(matData_new)
+
+matData_new.to_csv(r'testOut.txt', header=None, index=None, sep=' ', mode='a')
     
 print("Mega parser complete!")
 
-## TODO: need to figure out why there are only 18 rows in the sample dataset (21177_aln.meg)
+### TODO add header and index to output
+### TODO remove quotes from output
+### TODO add argument for outFile name
