@@ -58,10 +58,13 @@ print("The number of rows in matData_new is", matData_new.shape[0])
 
 print(matData_new)
 
-matData_new.to_csv(r'testOut.txt', header=None, index=None, sep=' ', mode='a')
-    
+matData_new.to_csv(r'testOut.txt', header=geneData, index=None, sep=',', mode='a')
 print("Mega parser complete!")
 
 ### TODO add header and index to output
 ### TODO remove quotes from output
 ### TODO add argument for outFile name
+### TODO fix this issue when writing header= ValueError: Writing 1 cols but got 19 aliases
+## need to do a 'text to columns' operation on the matrix values
+
+print(geneData)
