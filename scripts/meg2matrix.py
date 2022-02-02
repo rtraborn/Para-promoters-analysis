@@ -4,9 +4,11 @@ import re
 import pandas as pd
 import string
 import argparse
+import numpy as np
 
 parser = argparse.ArgumentParser(description="Converts Mega output to parsable matrix table for analysis")
-parser.add_argument("mega_data", help="Name of csv output file")
+parser.add_argument("mega_data", help="Name of mega file to parse")
+parser.add_argument("outFile", help="Name of csv file to write")
 args = parser.parse_args()
 
 def meg2matrix():
@@ -54,17 +56,24 @@ for line in lines[newStart:newEnd]:
     myOutput.close()
 
 matData_new = pd.DataFrame(matData)
-print("The number of rows in matData_new is", matData_new.shape[0])
+matData_new2 = matData_new[0].str.split(' ', expand=True)
+matData_new3 = matData_new2.drop([0, 1], axis=1)
 
-print(matData_new)
+print(matData_new3)
 
-matData_new.to_csv(r'testOut.txt', header=geneData, index=None, sep=',', mode='a')
+print("The number of rows in matData_new is", matData_new3.shape[0])
+print("The number of columns in matData_new is", matData_new3.shape[1])
+nCols=matData_new3.shape[1]
+genLen=len(geneData)
+startPoint=genLen+1
+extraLen=nCols-genLen
+print(extraLen)
+extraStr=np.arange(startPoint, extraLen, 1)
+colList=geneData.extend(extraStr)
+print(extraStr)
+matData_new3.df=colList
+
+matData_new3.to_csv(args.outFile, header=None, index=None, sep=',', mode='a', na_rep=None)
 print("Mega parser complete!")
 
-### TODO add header and index to output
-### TODO remove quotes from output
-### TODO add argument for outFile name
-### TODO fix this issue when writing header= ValueError: Writing 1 cols but got 19 aliases
-## need to do a 'text to columns' operation on the matrix values
-
-print(geneData)
+#TODO fix the header issue so that the file is written with the contents of geneData
