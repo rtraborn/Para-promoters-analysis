@@ -32,7 +32,7 @@ matData = []
 endPoint=34+n_taxa
 print(endPoint)
 
-print("The number of taxa is:", nTaxa)
+print("The number of genes is:", nTaxa)
 
 #obtaining the geneID list
 for line in lines[34:endPoint]:
@@ -43,7 +43,7 @@ for line in lines[34:endPoint]:
     myOutput.close()
 
 
-newStart=endPoint+3
+newStart=endPoint+2
 newEnd=endPoint+n_taxa+2
 print("newStart is:", newStart)
 print("newEnd is:", newEnd)
@@ -59,21 +59,18 @@ matData_new = pd.DataFrame(matData)
 matData_new2 = matData_new[0].str.split(' ', expand=True)
 matData_new3 = matData_new2.drop([0, 1], axis=1)
 
-print(matData_new3)
-
 print("The number of rows in matData_new is", matData_new3.shape[0])
 print("The number of columns in matData_new is", matData_new3.shape[1])
-nCols=matData_new3.shape[1]
 genLen=len(geneData)
-startPoint=genLen+1
-extraLen=nCols-genLen
-print(extraLen)
-extraStr=np.arange(startPoint, extraLen, 1)
-colList=geneData.extend(extraStr)
-print(extraStr)
-matData_new3.df=colList
+nCols=matData_new3.shape[1]
+finalCol=nCols
+df_seq=np.arange(genLen, nCols, 1)
+newCols=np.arange(0, nCols, 1)
+matData_final = matData_new3.set_axis(newCols, axis=1, inplace=False)
+matData_final2=matData_final.drop(df_seq, axis=1)
+matData_final3=matData_final2.set_axis(geneData, axis=1, inplace=False)
+matData_final4=matData_final3.set_axis(geneData, axis=0, inplace=False)
+print(matData_final4)
 
-matData_new3.to_csv(args.outFile, header=None, index=None, sep=',', mode='a', na_rep=None)
+matData_final4.to_csv(args.outFile, header=True, index=True, sep=',', mode='a', na_rep=None)
 print("Mega parser complete!")
-
-#TODO fix the header issue so that the file is written with the contents of geneData
